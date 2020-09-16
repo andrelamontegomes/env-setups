@@ -47,7 +47,7 @@ wsl --set-default-version 2
 
 # Disable sudo password
 
-```
+```bash
 sudo vim /etc/sudoers
 # Under %sudo privileges input:
 # user ALL=(ALL:ALL) NOPASSWD:ALL
@@ -67,14 +67,14 @@ sudo apt update && sudo apt upgrade -y
 
 # Installing Dependencies
 
-```jsx
+```bash
 # Install Node and Yarn
 curl -sL [https://deb.nodesource.com/setup_12.x](https://deb.nodesource.com/setup_12.x) | sudo -E bash -
 curl -sS [https://dl.yarnpkg.com/debian/pubkey.gpg](https://dl.yarnpkg.com/debian/pubkey.gpg) | sudo apt-key add -
 echo "deb [https://dl.yarnpkg.com/debian/](https://dl.yarnpkg.com/debian/) stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 # Install other dependencies
 sudo apt-get update
-sudo apt-get install -y curl git python libpq-dev zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs
+sudo apt-get install -y expect curl git python libpq-dev zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs
 ```
 
 # Installing ZSH as default shell
@@ -89,14 +89,14 @@ sh -c "$(curl -fsSL [https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install
 
 # rbenv installation
 
-```jsx
+```bash
 git clone [https://github.com/rbenv/rbenv.git](https://github.com/rbenv/rbenv.git) ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 exec $SHELL
 ```
 
-```jsx
+```bash
 git clone [https://github.com/rbenv/ruby-build.git](https://github.com/rbenv/ruby-build.git) ~/.rbenv/plugins/ruby-build
 echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.zshrc
 exec $SHELL
@@ -106,7 +106,7 @@ ruby -v
 gem install bundler
 ```
 
-```jsx
+```bash
 gem install rails -v 6.0.2.1
 rbenv rehash
 rails -v
