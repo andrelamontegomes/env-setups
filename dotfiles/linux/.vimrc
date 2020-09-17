@@ -75,11 +75,31 @@ set noswapfile " Disable creating .swp files
 set laststatus=2
 
 "=================== NERDTree ===================" 
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeWinSize = 30
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeGitStatusConcealBrackets = 1
+
+
+"=================== netrw ===================" 
+" let g:netrw_banner = 0
+" let g:netew_liststyle =3
+" let g:netrw_browse_split = 2
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+
+" Refresh Vim buffers on git changes
+set autoread
+autocmd FocusGained * checktime
+
 
 " Mapping Commands
 nmap <s-enter> o<esc>
