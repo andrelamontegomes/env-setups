@@ -9,6 +9,7 @@ plugins=(
   git 
   wd
   fast-syntax-highlighting
+  rails
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -25,6 +26,9 @@ alias ta="tmux attach-session -t"
 alias tr="tmux rename-session -t"
 alias tksa="tmux kill-server"
 alias tkst="tmux kill-session -t"
+
+# Git alias
+alias gmf="git merge --no-ff"
 
 # Bash alias
 alias cp="cp -v"
