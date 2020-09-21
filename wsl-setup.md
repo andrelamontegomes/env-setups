@@ -56,8 +56,10 @@ sudo vim /etc/sudoers
 # Configure DNS
 
 # wsl.conf setup
+```bash
 [automount]
 options="metadata,umask=0033"
+```
 
 # Update Ubuntu
 
@@ -86,6 +88,9 @@ sudo apt-get install -y bat ack-grep fd fzf silversearcher-ag
 sudo apt install -y zsh
 chsh $USER -s $(which zsh)
 sh -c "$(curl -fsSL [https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh](https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh))"
+git clone https://github.com/zdharma/fast-syntax-highlighting.git \
+  ~ZSH_CUSTOM/plugins/fast-syntax-highlighting
+curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
 ```
 
 # Rails setup
