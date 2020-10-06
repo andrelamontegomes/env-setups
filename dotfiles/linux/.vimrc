@@ -100,6 +100,10 @@ let g:netrw_winsize = 25
 set autoread
 autocmd FocusGained * checktime
 
+"=================== fzf ===================" 
+"let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+map ; :GFiles<CR>
+
 
 " Mapping Commands
 nmap <s-enter> o<esc>
@@ -128,4 +132,3 @@ inoremap '      ''<Left>
 inoremap '<CR>  '<CR>'<Esc>O
 inoremap ''     '
 
-map ; :Files<CR>
