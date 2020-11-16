@@ -1,0 +1,9 @@
+[color]
+	ui = true
+[user]
+	name = Andre Gomes
+	email = andre@cocoon.build
+[core]
+	editor = vim
+[alias]
+  st = status --short -uno
