@@ -2,7 +2,6 @@
 
 [https://frankpigeon.com/dev-setup-on-windows-10](https://frankpigeon.com/dev-setup-on-windows-10)
 Source for configuring WSL2
-
 Insider Build -Fast
 Download Windows10 Debloat Script
 [https://github.com/Sycnex/Windows10Debloater](https://github.com/Sycnex/Windows10Debloater)
@@ -31,7 +30,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /f /v CortanaConse
 
 ```powershell
 choco feature enable -n allowGlobalConfirmation
-choco install firefox wox sublimetext3
+choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-terminal 7zip vlc vscode bitwarden adobereader autohotkey.portable ccleaner filezilla protonmailbridge expressvpn dropbox spotify steam
 ```
 
 ```powershell
