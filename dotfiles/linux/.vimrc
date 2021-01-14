@@ -64,6 +64,7 @@ set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch	
 set showbreak=+++
+set title
     
 "=================== Miscellaneous ===================" 
 set undolevels=1000	
@@ -106,6 +107,12 @@ map ; :GFiles<CR>
 
 
 " Mapping Commands
+
+command Wq wq
+command WQ wq
+command W w
+command Q q
+
 nmap <s-enter> o<esc>
 nnoremap ss i<space><esc>
 
@@ -127,8 +134,3 @@ inoremap []     []
 inoremap "      ""<Left>
 inoremap "<CR>  "<CR>"<Esc>O
 inoremap ""     "
-
-inoremap '      ''<Left>
-inoremap '<CR>  '<CR>'<Esc>O
-inoremap ''     '
-
