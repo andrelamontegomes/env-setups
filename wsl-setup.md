@@ -66,7 +66,7 @@ options="metadata,umask=0033"
 Installing ssh on wsl at risk of periodically losing them
 ```bash
 cd ~
-ssh-keygen -t rsa -b 4096 -C ["YOUR@EMAIL.com](mailto:%22YOUR@EMAIL.com)"
+ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"
 ```
 
 # Installing ZSH as default shell
