@@ -69,6 +69,13 @@ cd ~
 ssh-keygen -t rsa -b 4096 -C ["YOUR@EMAIL.com](mailto:%22YOUR@EMAIL.com)"
 ```
 
+# Installing ZSH as default shell
+echo "Installing zsh"
+
+sudo apt install -y zsh
+chsh $USER -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # WSLtty setup
 Setup & Download WSLtty
 Theme: gruvbox

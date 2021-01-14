@@ -17,13 +17,6 @@ sudo apt-get install -y expect curl git python libpq-dev zlib1g-dev build-essent
 # Search
 sudo apt-get install -y bat ack-grep fd fzf silversearcher-ag
 
-# Installing ZSH as default shell
-echo "Installing zsh"
-
-sudo apt install -y zsh
-chsh $USER -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Rails setup
 
 # rbenv installation
