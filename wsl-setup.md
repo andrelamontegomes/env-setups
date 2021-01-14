@@ -30,7 +30,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /f /v CortanaConse
 
 ```powershell
 choco feature enable -n allowGlobalConfirmation
-choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-terminal 7zip vlc vscode bitwarden adobereader autohotkey.portable ccleaner filezilla protonmailbridge expressvpn dropbox spotify steam
+choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-terminal 7zip vlc vscode bitwarden adobereader autohotkey.portable ccleaner filezilla protonmailbridge expressvpn dropbox spotify steam wsltty firacode
 ```
 
 ```powershell
@@ -73,9 +73,3 @@ Installing ssh on wsl at risk of periodically losing them
 cd ~
 ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"
 ```
-
-# WSLtty setup
-Setup & Download WSLtty
-Theme: gruvbox
-Font: FiraCode ttf
-choco install firacode-ttf
