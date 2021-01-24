@@ -30,7 +30,7 @@ reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Search /f /v CortanaConse
 
 ```powershell
 choco feature enable -n allowGlobalConfirmation
-choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-terminal 7zip vlc vscode bitwarden adobereader autohotkey.portable ccleaner filezilla protonmailbridge expressvpn dropbox spotify steam wsltty firacode
+choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-terminal 7zip vlc vscode bitwarden adobereader autohotkey.portable ccleaner filezilla protonmailbridge expressvpn dropbox spotify steam wsltty firacode powertoys
 ```
 
 ```powershell
