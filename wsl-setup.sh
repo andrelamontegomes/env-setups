@@ -1,52 +1,28 @@
 # Update Ubuntu
 echo "Updating Ubuntu"
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade 
 
 # Installing Dependencies
 echo "Installing Dependencies"
 
-# Install Node and Yarn
+## Install Node and Yarn
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
-# Install other dependencies
-sudo apt-get update
-sudo apt-get install -y expect curl git python libpq-dev zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs unzip zip whois
-
-# Search
-sudo apt-get install -y bat ack-grep fd fzf silversearcher-ag
-
-# Rails setup
-
-# rbenv installation
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-# exec $SHELL
-
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.zshrc
-# exec $SHELL
-rbenv install 2.7.1
-rbenv global 2.7.1
-ruby -v
-gem install bundler
-
-gem install rails -v 6.0.2.1
-rbenv rehash
-rails -v
+## Install other dependencies
+sudo apt-get install expect curl git python libpq-dev zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs unzip zip whois bat ack-grep fd fzf silversearcher-ag
 
 # Setup Postgres
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main" > /etc/apt/sources.list.d/PostgreSQL.list'
 sudo apt update
-sudo apt install -y postgresql-11
+sudo apt install postgresql-11
 sudo service postgresql start
 sudo -u postgres createuser $(whoami) -s
 
 # Install Tmux
-sudo apt-get install -y automake bison pkg-config libevent-dev libncurses5-dev
+sudo apt-get install automake bison pkg-config libevent-dev libncurses5-dev
 rm -rf /tmp/tmux
 git clone https://github.com/tmux/tmux.git /tmp/tmux
 cd /tmp/tmux
@@ -59,11 +35,5 @@ rm -rf /tmp/tmux
 
 # Cleanup
 sudo apt remove cmdtest
-sudo apt -y autoremove
+sudo apt autoremove
 
-# Git configuration
-cd ~
-git config --global color.ui true
-git config --global user.name "Andre Gomes"
-git config --global user.email "andre@cocoon.build"
-git config --global core.editor vim 
