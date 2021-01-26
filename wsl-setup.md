@@ -71,7 +71,8 @@ chsh $USER -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-### Follow wsl-setup.sh instructions
+### Follow or Run wsl-setup.sh instructions
+[Link to script](https://github.com/gomesac/env-setups/blob/master/wsl-setup.sh)
 
 # Rails setup
 ```bash
