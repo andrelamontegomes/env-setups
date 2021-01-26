@@ -69,6 +69,13 @@ options="metadata,umask=0033"
 sudo apt install zsh
 chsh $USER -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Add custom themes and plugins
+git clone https://github.com/zdharma/fast-syntax-highlighting.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
+
+
 ```
 
 ### Follow or Run wsl-setup.sh instructions
@@ -95,11 +102,13 @@ rails -v
 ```
 
 # Git configuration
+```bash
 cd ~
 git config --global color.ui true
 git config --global user.name "Your name"
 git config --global user.email "Your email"
 git config --global core.editor vim 
+```
 
 # SSH
 Installing ssh on wsl at risk of periodically losing them
