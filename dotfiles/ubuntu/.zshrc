@@ -20,9 +20,13 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Windows applications alias
-alias clip="clip.exe <"
-alias open="explorer.exe"
+alias sudo="sudo "
+alias apt="sudo apt"
+alias apti="sudo apt install"
+
+alias clip="xclip -selection clipboard"
+alias clipl="xclip -o"
+alias open="nautilus"
 
 # Tmux alias
 alias tls="tmux list-sessions"
