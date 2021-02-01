@@ -16,7 +16,7 @@ Location
 Background Apps
 App Diagnostics
 
-# Set "Power Settings" to "High performance"
+## Set "Power Settings" to "High performance"
 
 # Disable File indexing: Go to local disk and Turn off for local disk
 
@@ -37,6 +37,8 @@ choco install firefox wox sublimetext3 obs-studio brave microsoft-windows-termin
 Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 ```
+
+### ***Make sure if is built desktop, the BIOS has SVM enabled***
 
 # Download Ubuntu from MS Store
 
