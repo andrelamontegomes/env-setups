@@ -27,7 +27,7 @@ sudo apt install brave-browser
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main" > /etc/apt/sources.list.d/PostgreSQL.list'
 sudo apt update
-sudo apt install postgresql-11
+sudo apt install postgresql-13
 sudo service postgresql start
 sudo -u postgres createuser $(whoami) -s
 
