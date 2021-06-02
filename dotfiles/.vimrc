@@ -64,6 +64,7 @@ set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch	
 set showbreak=+++
+set title
     
 "=================== Miscellaneous ===================" 
 set undolevels=1000	
@@ -73,7 +74,6 @@ set autoread " Auto reload files that are changed outside of vim
 set vb t_vb= " Removes annyoing beeps when bad command
 set noswapfile " Disable creating .swp files
 set laststatus=2
-au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "=================== NERDTree ===================" 
 let g:NERDTreeMinimalUI = 1
@@ -107,6 +107,15 @@ map ; :GFiles<CR>
 
 
 " Mapping Commands
+
+map <F1> :NERDTree<CR>
+map <F2> :q1<CR>
+
+command Wq wq
+command WQ wq
+command W w
+command Q q
+
 nmap <s-enter> o<esc>
 nnoremap ss i<space><esc>
 
