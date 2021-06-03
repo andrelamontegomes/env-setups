@@ -22,6 +22,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'
   Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
@@ -65,6 +66,8 @@ set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch	
 set showbreak=+++
 set title
+set list
+set listchars=tab:>-
     
 "=================== Miscellaneous ===================" 
 set undolevels=1000	
@@ -107,9 +110,6 @@ map ; :GFiles<CR>
 
 
 " Mapping Commands
-
-map <F1> :NERDTree<CR>
-map <F2> :q1<CR>
 
 command Wq wq
 command WQ wq

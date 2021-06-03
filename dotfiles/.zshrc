@@ -1,13 +1,22 @@
 export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/dev-scripts:$PATH
+
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=$PATH:$JAVA_HOME/bin
-export ANDROID_HOME=~/Android
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_HOME=$HOME/android_sdk/cmdline-tools/latest
+export ANDROID_SDK_ROOT=$HOME/android_sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_HOME/bin
+export WSL_HOST="192.168.1.254"
+export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
 
-export WINDOWS="/mnt/c/Users/andre"
+# GUI and Electron setup
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+
+alias adb="$ANDROID_SDK_ROOT/platform-tools/adb"
+alias subl='"/mnt/c/Program Files/Sublime Text/subl.exe"'
 
 export ZSH="/home/andre/.oh-my-zsh"
 ZSH_THEME="gruvbox"
@@ -25,7 +34,6 @@ source $ZSH/oh-my-zsh.sh
 # Windows applications alias
 alias clip="clip.exe <"
 alias open="explorer.exe"
-alias subl='"/mnt/c/Program Files/Sublime Text/subl.exe"'
 
 # Tmux alias
 alias tls="tmux list-sessions"
@@ -39,19 +47,16 @@ alias tkst="tmux kill-session -t"
 # Git alias
 alias gmf="git merge --no-ff"
 alias gb="git branch | cat"
-alias gs="git status --porcelain"
+alias gs="git status --short -uno"
+alias gnvm="git reset --soft HEAD~1"
 
 # Bash alias
 alias cp="cp -v"
-alias ls="ls -a"
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 alias bat='batcat'
-
-alias ptodo='vim ~/todo/personal.md'
-alias gtodo='vim ~/todo/gss.md'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
