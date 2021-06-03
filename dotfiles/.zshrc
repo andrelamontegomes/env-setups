@@ -31,6 +31,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Macros 
+alias tp="cd $HOME/todo && vim personal.md"
+alias tg="cd $HOME/todo && vim gss.md"
+
 # Windows applications alias
 alias clip="clip.exe <"
 alias open="explorer.exe"
