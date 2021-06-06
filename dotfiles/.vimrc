@@ -110,6 +110,7 @@ map ; :GFiles<CR>
 
 
 " Mapping Commands
+nmap <F1> :NERDTreeToggle<CR>
 
 command Wq wq
 command WQ wq
@@ -118,6 +119,11 @@ command Q q
 
 nmap <s-enter> o<esc>
 nnoremap ss i<space><esc>
+
+inoremap <      <><Left>
+inoremap <<CR>  <<CR><<Esc>O
+inoremap <<     <
+inoremap <>     <>
 
 inoremap {      {}<Left>
 inoremap {<CR>  {<CR>}<Esc>O
