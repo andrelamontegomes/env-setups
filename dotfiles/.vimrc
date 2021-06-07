@@ -109,6 +109,9 @@ autocmd FocusGained * checktime
 map ; :GFiles<CR>
 
 
+" Auto Commands
+autocmd VimResized * wincmd =
+
 " Mapping Commands
 nmap <F1> :NERDTreeToggle<CR>
 nmap <C-S> :w<CR>
