@@ -106,14 +106,14 @@ autocmd FocusGained * checktime
 
 "=================== fzf ===================" 
 "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-map ; :GFiles<CR>
+map ; :GFiles<CR> 
 
 
 " Auto Commands
 autocmd VimResized * wincmd =
 
 " Mapping Commands
-nmap <F1> :NERDTreeToggle<CR>
+nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 nmap <C-S> :w<CR>
 
 command Wq wq
