@@ -115,6 +115,7 @@ map ; :GFiles<CR>
 autocmd VimResized * wincmd =
 
 " Mapping Commands
+nmap <F9> :nohl
 nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 nmap <C-S> :w<CR>
 
@@ -125,6 +126,15 @@ command Q q
 
 nmap <s-enter> o<esc>
 nnoremap ss i<space><esc>
+
+" Improve Navigation
+nmap j gj
+nmap k gk
+nmap H ^
+nmap L $
+
+" Yank to system clipboard
+set clipboard=unnamed
 
 inoremap <      <><Left>
 inoremap <<CR>  <<CR><<Esc>O
