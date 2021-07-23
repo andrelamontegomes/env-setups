@@ -39,6 +39,12 @@ alias tg="cd $HOME && vim $HOME/todo/gss.md"
 alias clip="clip.exe <"
 alias open="explorer.exe"
 
+# Heroku alias
+alias hrrc="heroku run rails console"
+alias hrr="heroku run rails console"
+alias hrp="--remote production"
+alias hrs="--remote staging"
+
 # Tmux alias
 alias tls="tmux list-sessions"
 alias tn="tmux new-session -t"
