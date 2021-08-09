@@ -24,6 +24,7 @@ SOLARIZED_THEM="dark"
 plugins=(
   git 
   wd
+  docker
   fast-syntax-highlighting
   rails
   vi-mode
@@ -67,6 +68,8 @@ export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 alias bat='batcat'
+
+alias mkdir='mkdir -p'
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
