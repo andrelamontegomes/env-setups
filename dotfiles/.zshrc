@@ -55,12 +55,6 @@ alias tr="tmux rename-session -t"
 alias tksa="tmux kill-server"
 alias tkst="tmux kill-session -t"
 
-# Git alias
-alias gmf="git merge --no-ff"
-alias gb="git branch | cat"
-alias gs="git status --short -uno"
-alias gnvm="git reset --soft HEAD~1"
-
 # Bash alias
 alias cp="cp -v"
 export LESSOPEN="| src-hilite-lesspipe.sh %s"

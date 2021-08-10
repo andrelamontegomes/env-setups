@@ -2,8 +2,12 @@
 	ui = true
 [user]
 	name = Andre Gomes
-	email = andre@cocoon.build
+	email = andre@gosmartsolar.com
+	editor = vim
 [core]
 	editor = vim
 [alias]
   st = status --short -uno
+  bc = branch | cat
+  nvm = reset --hard
+  m = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
