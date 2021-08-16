@@ -117,7 +117,6 @@ autocmd VimResized * wincmd =
 " Mapping Commands
 nmap <F9> :nohl
 nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
-nmap <C-S> :w<CR>
 
 command Wq wq
 command WQ wq
