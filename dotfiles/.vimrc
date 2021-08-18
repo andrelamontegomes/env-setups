@@ -110,12 +110,11 @@ autocmd FocusGained * checktime
 "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 map ; :GFiles<CR> 
 
-
 " Auto Commands
 autocmd VimResized * wincmd =
 
 " Mapping Commands
-nmap <F9> :nohl
+nmap <F9> :nohl<CR>
 nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 
 command Wq wq
@@ -162,3 +161,6 @@ inoremap []     []
 inoremap "      ""<Left>
 inoremap "<CR>  "<CR>"<Esc>O
 inoremap ""     "
+
+" Custom Commands
+:command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
