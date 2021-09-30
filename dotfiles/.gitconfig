@@ -7,7 +7,8 @@
 [core]
 	editor = vim
 [alias]
-  st = status --short -uno
-  bc = branch | cat
+  ss = status --short -uno
+  branch = branch | cat
   nvm = reset --hard
-  m = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
+  mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
+  conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"

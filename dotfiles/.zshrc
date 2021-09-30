@@ -32,6 +32,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+unsetopt AUTO_CD 
+
 # Macros 
 alias tp="cd $HOME && vim $HOME/todo/personal.md"
 alias tg="cd $HOME && vim $HOME/todo/gss.md"

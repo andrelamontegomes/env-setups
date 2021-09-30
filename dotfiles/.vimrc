@@ -62,6 +62,7 @@ set list
 set listchars=tab:>-
     
 "=================== Miscellaneous ===================" 
+set autochdir
 set undolevels=1000	
 set backspace=indent,eol,start
 set shiftwidth=2 tabstop=2 expandtab
