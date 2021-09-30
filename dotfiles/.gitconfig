@@ -2,7 +2,6 @@
 	ui = true
 [user]
 	name = Andre Gomes
-	editor = vim
 [core]
 	editor = vim
 [alias]
