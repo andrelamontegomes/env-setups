@@ -2,7 +2,6 @@
 	ui = true
 [user]
 	name = Andre Gomes
-	email = andre@gosmartsolar.com
 	editor = vim
 [core]
 	editor = vim
