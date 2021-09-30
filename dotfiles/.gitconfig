@@ -1,7 +1,6 @@
 [color]
 	ui = true
 [core]
-	user = "andre"
 	editor = vim
 [alias]
   ss = status --short -uno
@@ -9,3 +8,6 @@
   nvm = reset --hard
   mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
+[user]
+	name = andre
+	email = me@andrelgomes.com
