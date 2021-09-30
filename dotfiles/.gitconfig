@@ -1,8 +1,7 @@
 [color]
 	ui = true
-[user]
-	name = Andre Gomes
 [core]
+	user = "andre"
 	editor = vim
 [alias]
   ss = status --short -uno
