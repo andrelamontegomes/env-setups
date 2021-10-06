@@ -6,3 +6,4 @@ cp ./dotfiles/.tmux.conf ~
 cp ./dotfiles/.irbrc ~   
 cp ./dotfiles/.minttyrc ~   
 cp ./dotfiles/.gitconfig ~   
+cp ./dotfiles/.taskrc ~   
