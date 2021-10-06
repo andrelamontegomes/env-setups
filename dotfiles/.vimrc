@@ -28,6 +28,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
 
+  """ Adnvace plugins
+  Plug 'itchyny/calendar.vim'
+
 call plug#end()
 
 "=================== Search ===================" 
