@@ -34,10 +34,6 @@ source $ZSH/oh-my-zsh.sh
 
 unsetopt AUTO_CD 
 
-# Macros 
-alias tp="cd $HOME && vim $HOME/todo/personal.md"
-alias tg="cd $HOME && vim $HOME/todo/gss.md"
-
 # Windows applications alias
 alias clip="clip.exe <"
 alias open="explorer.exe"
@@ -47,6 +43,10 @@ alias hrrc="heroku run rails console"
 alias hrr="heroku run rails console"
 alias hrp="--remote production"
 alias hrs="--remote staging"
+
+# TaskWarrior alias
+alias t="task"
+alias tt="taskwarrior-tui"
 
 # Tmux alias
 alias tls="tmux list-sessions"

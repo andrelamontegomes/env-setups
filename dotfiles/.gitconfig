@@ -11,3 +11,5 @@
 [user]
 	name = andre
 	email = me@andrelgomes.com
+[advice]
+	detachedHead = false

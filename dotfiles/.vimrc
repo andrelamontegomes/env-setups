@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')
 
   """ Adnvace plugins
   Plug 'itchyny/calendar.vim'
+  Plug 'blindFS/vim-taskwarrior'
 
 call plug#end()
 
