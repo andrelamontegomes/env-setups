@@ -1,21 +1,10 @@
 export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/dev-scripts:$PATH
-
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export PATH=$PATH:$JAVA_HOME/bin
-export ANDROID_HOME=$HOME/android_sdk/cmdline-tools/latest
-export ANDROID_SDK_ROOT=$HOME/android_sdk
-export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
-export PATH=$PATH:$ANDROID_HOME/bin
-export WSL_HOST="192.168.1.254"
-export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
+export PATH=$HOME/_util:$PATH
 
 # GUI and Electron setup
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 
-alias adb="$ANDROID_SDK_ROOT/platform-tools/adb"
 alias subl='"/mnt/c/Program Files/Sublime Text/subl.exe"'
 
 export ZSH="/home/andre/.oh-my-zsh"
@@ -45,8 +34,11 @@ alias hrp="--remote production"
 alias hrs="--remote staging"
 
 # TaskWarrior alias
-alias t="task"
 alias tt="taskwarrior-tui"
+alias task='unset TASKRC && task rc.data.location=~/.task'
+alias taskw='export TASKRC=$HOME/.taskrc-bigsunsolar && task rc.data.location=~/.task-bigsunsolar'
+alias tpa="taskp add"
+alias twa="taskw add"
 
 # Tmux alias
 alias tls="tmux list-sessions"
