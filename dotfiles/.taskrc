@@ -37,3 +37,4 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 editor=vi
 confirmation=off
+urgency.user.project.cocoon.coefficient=3.0

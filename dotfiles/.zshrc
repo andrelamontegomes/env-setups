@@ -2,11 +2,6 @@ export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/_util:$PATH
 
-# GUI and Electron setup
-export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
-
-alias subl='"/mnt/c/Program Files/Sublime Text/subl.exe"'
-
 export ZSH="/home/andre/.oh-my-zsh"
 ZSH_THEME="gruvbox"
 SOLARIZED_THEM="dark"
@@ -21,26 +16,40 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+########################################
+### Plugins configuration
+########################################
+ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
 unsetopt AUTO_CD 
 
-# Windows applications alias
+########################################
+### Windows applications alias
+########################################
 alias clip="clip.exe <"
 alias open="explorer.exe"
+alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
 
-# Heroku alias
+########################################
+### Heroku alias
+########################################
 alias hrrc="heroku run rails console"
 alias hrr="heroku run rails console"
 alias hrp="--remote production"
 alias hrs="--remote staging"
 
-# TaskWarrior alias
+########################################
+### Taskwarrior alias
+########################################
 alias tt="taskwarrior-tui"
 alias task='unset TASKRC && task rc.data.location=~/.task'
 alias taskw='export TASKRC=$HOME/.taskrc-bigsunsolar && task rc.data.location=~/.task-bigsunsolar'
 alias tpa="taskp add"
 alias twa="taskw add"
 
-# Tmux alias
+########################################
+### Tmux alias
+########################################
 alias tls="tmux list-sessions"
 alias tn="tmux new-session -t"
 alias td="tmux detach"
@@ -49,7 +58,9 @@ alias tr="tmux rename-session -t"
 alias tksa="tmux kill-server"
 alias tkst="tmux kill-session -t"
 
-# Bash alias
+########################################
+### Bash alias
+########################################
 alias cp="cp -v"
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
