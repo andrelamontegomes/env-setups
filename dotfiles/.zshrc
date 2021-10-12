@@ -1,6 +1,7 @@
 export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/_util:$PATH
+export PATH=$HOME/forks/ledger:$PATH
 
 export ZSH="/home/andre/.oh-my-zsh"
 ZSH_THEME="gruvbox"
@@ -67,6 +68,7 @@ export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 alias bat='batcat'
+alias ls='ls -F'
 
 alias mkdir='mkdir -p'
 
