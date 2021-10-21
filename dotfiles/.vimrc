@@ -31,8 +31,13 @@ call plug#begin('~/.vim/plugged')
   """ Adnvace plugins
   Plug 'itchyny/calendar.vim'
   Plug 'blindFS/vim-taskwarrior'
+  Plug 'ledger/vim-ledger'
 
 call plug#end()
+
+"=================== Vim Ledger ===================" 
+let g:ledger_fillstring = '    -'
+let g:ledger_fold_blanks = 0
 
 "=================== Search ===================" 
 set hlsearch " Highlight the search
