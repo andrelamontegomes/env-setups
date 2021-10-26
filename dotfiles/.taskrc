@@ -38,3 +38,4 @@ report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +P
 editor=vi
 confirmation=off
 urgency.user.project.cocoon.coefficient=3.0
+urgency.user.project.chikuri.coefficient=5.0

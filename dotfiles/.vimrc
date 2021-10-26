@@ -69,6 +69,8 @@ set showbreak=+++
 set title
 set list
 set listchars=tab:>-
+set colorcolumn=100
+hi ColorColumn ctermbg=lightcyan guibg=blue
     
 "=================== Miscellaneous ===================" 
 set autochdir
