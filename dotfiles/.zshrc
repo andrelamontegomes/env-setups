@@ -1,6 +1,6 @@
 export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/_util:$PATH
+export PATH=$HOME/workspace/_utils:$PATH
 export PATH=$HOME/forks/ledger:$PATH
 
 export ZSH="/home/andre/.oh-my-zsh"
@@ -27,9 +27,11 @@ unsetopt AUTO_CD
 ########################################
 ### Windows applications alias
 ########################################
-alias clip="clip.exe <"
-alias open="explorer.exe"
-alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
+if uname -r | grep -q 'Microsoft' ; then
+  alias clip="clip.exe <"
+  alias open="explorer.exe"
+  alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
+fi
 
 ########################################
 ### Heroku alias
@@ -69,13 +71,10 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 alias bat='batcat'
 alias ls='ls -F'
-
 alias mkdir='mkdir -p'
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/andre/.sdkman"
-[[ -s "/home/andre/.sdkman/bin/sdkman-init.sh" ]] && source "/home/andre/.sdkman/bin/sdkman-init.sh"
+if command -v rbenv > /dev/null ; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+fi
