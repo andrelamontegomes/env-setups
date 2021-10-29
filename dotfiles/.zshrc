@@ -42,15 +42,6 @@ alias hrp="--remote production"
 alias hrs="--remote staging"
 
 ########################################
-### Taskwarrior alias
-########################################
-alias tt="taskwarrior-tui"
-alias task='unset TASKRC && task rc.data.location=~/.task'
-alias taskw='export TASKRC=$HOME/.taskrc-bigsunsolar && task rc.data.location=~/.task-bigsunsolar'
-alias tpa="taskp add"
-alias twa="taskw add"
-
-########################################
 ### Tmux alias
 ########################################
 alias tls="tmux list-sessions"
