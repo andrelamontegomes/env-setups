@@ -17,6 +17,7 @@ data.location=~/.task
 #include ~/_forks/taskwarrior/nord.theme
 include ~/_forks/taskwarrior/sky-fedora.theme
 
+rc.regex=on
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
@@ -35,5 +36,7 @@ urgency.user.tag.cpse.coefficient=8.0
 urgency.user.tag.pr.coefficient=8.0
 context.bigsun.read=pro:bigsun
 context.bigsun.write=pro:bigsun
-context.personal.read=(pro:personal or pro:cocoon)
-context.personal.write=(pro:personal or pro:cocoon)
+context.personal.read=pro:personal
+context.personal.write=pro:personal
+context.cocoon.read=pro:cocoon
+context.cocoon.write=pro:cocoon
