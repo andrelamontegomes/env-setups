@@ -15,7 +15,7 @@ data.location=~/.task
 
 # Color theme (uncomment one to use)
 #include ~/_forks/taskwarrior/nord.theme
-include ~/_forks/taskwarrior/sky-fedora.theme
+include ~/workspace/_forks/taskwarrior/sky-fedora.theme
 
 rc.regex=on
 uda.reviewed.type=date
@@ -26,14 +26,17 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 editor=vi
 confirmation=off
+news.version=2.6.0
+
 urgency.user.project.cocoon.coefficient=3.0
 urgency.user.project.personal.chikuri.coefficient=5.0
-news.version=2.6.0
 
 # Custom BigSun Urgency
 urgency.user.tag.bug.coefficient=8.0
 urgency.user.tag.cpse.coefficient=8.0
 urgency.user.tag.pr.coefficient=8.0
+
+# Context
 context.bigsun.read=pro:bigsun
 context.bigsun.write=pro:bigsun
 context.personal.read=pro:personal
