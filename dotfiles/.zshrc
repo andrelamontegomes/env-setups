@@ -69,7 +69,7 @@ alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 alias bat='batcat'
 alias mkdir='mkdir -p'
-alias lf="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
+alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
 
 if command -v rbenv > /dev/null ; then
   export PATH="$HOME/.rbenv/bin:$PATH"
