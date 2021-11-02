@@ -1,18 +1,25 @@
 export TERM=xterm-256color
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/workspace/_utils:$PATH
-export PATH=$HOME/forks/ledger:$PATH
+export PATH=$HOME/workspace/_forks/ledger:$PATH
 
 export ZSH="/home/andre/.oh-my-zsh"
-ZSH_THEME="gruvbox"
-SOLARIZED_THEM="dark"
+ZSH_THEME="onedark"
 plugins=(
   git 
-  wd
-  docker
-  fast-syntax-highlighting
   rails
+  ruby
+  docker
+  sudo
   vi-mode
+  wd
+  copydir
+  copyfile
+  dirhistory
+  history
+  jsontools
+  fast-syntax-highlighting
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
