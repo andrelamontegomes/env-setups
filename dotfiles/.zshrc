@@ -1,5 +1,4 @@
 export TERM=xterm-256color
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/workspace/_utils:$PATH
 export PATH=$HOME/workspace/_forks/ledger:$PATH
 
@@ -70,6 +69,11 @@ alias more='less'
 alias bat='batcat'
 alias mkdir='mkdir -p'
 alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
+
+if command -v gem > /dev/null ; then
+  export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+  export PATH="$PATH:$GEM_HOME/bin"
+fi
 
 if command -v rbenv > /dev/null ; then
   export PATH="$HOME/.rbenv/bin:$PATH"
