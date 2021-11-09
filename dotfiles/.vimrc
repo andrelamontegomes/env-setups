@@ -113,7 +113,7 @@ autocmd FocusGained * checktime
 map ; :GFiles<CR> 
 
 " Auto Commands
-autocmd VimResized * wincmd =
+" autocmd VimResized * wincmd =
 
 " Mapping Commands
 nmap <F9> :nohl<CR>

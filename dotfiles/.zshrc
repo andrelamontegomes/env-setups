@@ -23,10 +23,14 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+function zshaddhistory() {
+  echo "${1%%$'\n'}|${PWD}    " >> ~/.zsh_history_ext
+}
+
 ########################################
 ### Plugins configuration
 ########################################
-# ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
 
 unsetopt AUTO_CD 
 
