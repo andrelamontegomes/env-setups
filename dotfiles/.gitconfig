@@ -2,6 +2,7 @@
 	ui = true
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore_global
 [alias]
   ss = status --short -uno
   branch = branch | cat
