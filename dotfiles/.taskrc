@@ -43,4 +43,3 @@ context.personal.read=pro:personal
 context.personal.write=pro:personal
 context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
-context=personal
