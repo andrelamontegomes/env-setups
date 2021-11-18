@@ -61,7 +61,6 @@ set linebreak
 "=================== User Interface ===================" 
 set ruler
 set mouse=a " Allow mouse-control
-set cursorline
 set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch	
@@ -116,7 +115,6 @@ map ; :GFiles<CR>
 " autocmd VimResized * wincmd =
 
 " Mapping Commands
-nmap <F9> :nohl<CR>
 nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 
 command Wq wq
@@ -168,15 +166,6 @@ inoremap ""     "
 :command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
 
 "=================== Theme ===================" 
-if !has('nvim')
-    set cursorline
-    set cursorlineopt=number
-endif"
-augroup colorextend
-  autocmd!
-  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#CCCCCC" } })
-  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
-augroup END
 syntax on
 set termguicolors
 colorscheme onedark
@@ -184,6 +173,19 @@ colorscheme onedark
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
+
+set cursorline
+set cursorcolumn
+set cursorlineopt=number
+
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+
+ augroup colorextend
+   autocmd!
+   autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#CCCCCC" } })
+   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+ augroup END
 
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
