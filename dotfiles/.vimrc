@@ -69,7 +69,9 @@ set title
 set list
 set listchars=tab:>-
 set colorcolumn=100
-hi ColorColumn ctermbg=lightcyan guibg=blue
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
     
 "=================== Miscellaneous ===================" 
 set autochdir
@@ -176,21 +178,17 @@ let g:lightline = {
 
 set cursorline
 set cursorcolumn
-set cursorlineopt=number
 
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
- augroup colorextend
-   autocmd!
-   autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#CCCCCC" } })
-   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
- augroup END
+augroup colorextend
+ autocmd!
+ autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#CCCCCC" } })
+ autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+augroup END
 
-" set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-
-" Normal         xxx ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#282C34
+" Normal ctermfg=145 ctermbg=235 guifg=#ABB2BF guibg=#282C34
 highlight Normal guibg=#202328
 highlight MatchParen guifg=#C678DD guibg=#504066
 """highlight LineNr    guifg=#151822
@@ -202,12 +200,6 @@ hi IndentGuidesEven guibg=#2a2e30 guifg=#24282a
 hi IndentGuidesOdd guibg=#262a2c guifg=#24282a
 hi Comment guifg=#4a5158
 hi String guifg=#98C379 guibg=#2a2e34
-
-""" browns
-" function params: numbers and constants
-" hi Keyword guifg=#907161
-" hi Statement guifg=#56B6C2
-" hi Conditional guifg=#56B6C2
 
 " Yellows
 hi Number guifg=#E5C07B
@@ -243,17 +235,6 @@ autocmd FileType python,go highlight goConditional guifg=#2974a1
 autocmd FileType python,go highlight goStatement guifg=#56B6C2
 autocmd FileType python,go highlight goRepeat guifg=#56B6C2
 
-
-" " dark red
-" hi tsxTagName guifg=#E06C75
-" " orange
-" hi tsxCloseString guifg=#F99575
-" hi tsxCloseTag guifg=#F99575
-" hi tsxAttributeBraces guifg=#F99575
-" hi tsxEqual guifg=#F99575
-" " yellow
-" hi tsxAttrib guifg=#F8BD7F 
-
 " light blue
 hi tsxTagName guifg=#59ACE5
 hi tsxComponentName guifg=#59ACE5
@@ -285,10 +266,9 @@ hi typescriptJFunctions guifg=#56B6C2
 hi typescriptSFunctions guifg=#56B6C2
 hi typescriptInterpolationDelimiter guifg=#56B6C2
 hi typescriptExceptions guifg=#DDA671
-" hi typescriptIdentifier guifg=#907161
-" hi typescriptStorageClass guifg=#907161
 hi typescriptIdentifier guifg=#65809D
 hi typescriptStorageClass guifg=#65809D
+
 " JSON
 hi jsonCommentError guifg=#4a5158
 

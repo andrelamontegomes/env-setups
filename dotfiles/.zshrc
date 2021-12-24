@@ -63,6 +63,12 @@ alias tksa="tmux kill-server"
 alias tkst="tmux kill-session -t"
 
 ########################################
+### Taskwarrior alias
+########################################
+alias tw="task"
+alias twt="task top"
+
+########################################
 ### Bash alias
 ########################################
 alias cp="cp -v"
