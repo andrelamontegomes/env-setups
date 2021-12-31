@@ -13,10 +13,6 @@
 # Files
 data.location=~/.task
 
-# Color theme (uncomment one to use)
-#include ~/_forks/taskwarrior/nord.theme
-#include ~/workspace/_forks/taskwarrior/sky-fedora.theme
-
 rc.regex=on
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
@@ -28,13 +24,23 @@ editor=vim
 confirmation=off
 news.version=2.6.0
 
+# Search
+search.case.sensitive=no
+
+# Personal Urgency
+urgency.user.tag.qw.coefficient=10.0 # qw = quick win
+urgency.user.tag.chores.coefficient=3.0
+urgency.user.tag.sam.coefficient=8.0
+urgency.user.tag.people.coefficient=5.0
+
+# Cocoon Urgency
 urgency.user.project.cocoon.coefficient=3.0
-urgency.user.project.personal.chikuri.coefficient=5.0
+urgency.user.project.cocoon.chikuri.coefficient=3.0
 
 # BigSun Urgency
-urgency.user.tag.bug.coefficient=8.0
-urgency.user.tag.cpse.coefficient=8.0
-urgency.user.tag.pr.coefficient=8.0
+urgency.user.tag.bug.coefficient=3.0
+urgency.user.tag.cpse.coefficient=7.0
+urgency.user.tag.pr.coefficient=5.0
 
 # Context
 context.bigsun.read=pro:bigsun
@@ -44,17 +50,14 @@ context.personal.write=pro:personal
 context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
 
-# Search
-search.case.sensitive=no
 
 # Custom Reports
 # default
-report.top.columns=id,priority,project.parent,tags,description
-report.top.filter=status:pending (priority:H or priority:M)
-report.top.labels=ID,Pri,Project,Tags,Description
-report.top.sort=priority-/,project-,description+
-# report.top.limit=page
-
+report.top.columns=id,priority,project,description.count,tags
+#report.top.filter=status:pending (priority:H or priority:M) limit:page
+report.top.filter=pro.not:bigsun (status:pending or status:waiting) limit:8
+report.top.labels=ID,P,Project,Description,Tags
+report.top.sort=urgency-/,priority-/,project-,description+
 
 ###############################################################################
 #

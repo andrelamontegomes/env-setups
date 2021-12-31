@@ -66,7 +66,15 @@ alias tkst="tmux kill-session -t"
 ### Taskwarrior alias
 ########################################
 alias tw="task"
+alias twa="task add"
+alias twap="task add pro:personal"
+alias twac="task add pro:cocoon"
+alias twab="task add pro:bigsun"
+alias twe="task edit"
 alias twt="task top"
+alias twb="task pro:bigsun"
+alias twp="task pro:personal"
+alias twc="task pro:cocoon"
 
 ########################################
 ### Bash alias
@@ -79,6 +87,8 @@ alias more='less'
 alias bat='batcat'
 alias mkdir='mkdir -p'
 alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
+
+alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 
 if command -v gem > /dev/null ; then
   export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
