@@ -39,6 +39,12 @@ call plug#end()
 let g:ledger_fillstring = '    -'
 let g:ledger_fold_blanks = 0
 
+"=================== General ===================" 
+set nocompatible
+filetype on
+filetype plugin on
+filetype indent on
+
 "=================== Search ===================" 
 set hlsearch " Highlight the search
 set ignorecase
@@ -51,19 +57,19 @@ set smarttab " Insert mode press tab to indent
    
 "=================== Performance ===================" 
 set complete-=i " Limit the files searched for auto-completes
-set lazyredraw " Do not update screen during macro and script execution
+" set lazyredraw " Do not update screen during macro and script execution
 
 "=================== Text Rendering ===================" 
 set display+=lastline " Try to show a paragraph's last line
 set encoding=utf-8 " Necessary to show unicode glyphs
-set linebreak	
+set nowrap
 
 "=================== User Interface ===================" 
 set ruler
 set mouse=a " Allow mouse-control
 set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
-set showmatch	
+set showmatch
 set showbreak=+++
 set title
 set list
@@ -113,10 +119,23 @@ autocmd FocusGained * checktime
 "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 map ; :GFiles<CR> 
 
-" Auto Commands
-" autocmd VimResized * wincmd =
-
 " Mapping Commands
+
+let mapleader = '\'
+
+nnoremap <leader>\ :nohlsearch<CR>
+
+" Press the space bar to type the : character in command mode.
+nnoremap <space> :
+
+" Pressing the letter o will open a new line below the current one.
+" Exit insert mode after creating a new line above or below the current line.
+nnoremap o o<esc>
+nnoremap O O<esc>
+
+" Yank from cursor to the end of line.
+nnoremap Y y$
+
 nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 
 command Wq wq
@@ -126,6 +145,13 @@ command Q q
 
 nmap <s-enter> o<esc>
 nnoremap ss i<space><esc>
+
+" Resize split windows using arrow keys by pressing:
+" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+noremap <c-up> <c-w>+
+noremap <c-down> <c-w>-
+noremap <c-left> <c-w>>
+noremap <c-right> <c-w><
 
 " Improve Navigation
 nmap j gj

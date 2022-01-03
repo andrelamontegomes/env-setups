@@ -1,6 +1,5 @@
 export TERM=xterm-256color
 export PATH=$HOME/workspace/_utils:$PATH
-export PATH=$HOME/workspace/_forks/ledger:$PATH
 
 export ZSH="/home/andre/.oh-my-zsh"
 ZSH_THEME="onedark"
@@ -84,7 +83,7 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
-alias bat='batcat'
+#alias bat='batcat'
 alias mkdir='mkdir -p'
 alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
 
