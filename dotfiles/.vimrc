@@ -79,6 +79,11 @@ set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
     
+"=================== Undo Backup =========================" 
+set undodir=~/.vim/backup
+set undofile
+set undoreload=10000
+
 "=================== Miscellaneous ===================" 
 set autochdir
 set undolevels=1000	
