@@ -78,6 +78,8 @@ alias twc="task pro:cocoon"
 ########################################
 ### Bash alias
 ########################################
+alias sudo="sudo -v; sudo "
+
 alias cp="cp -v"
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "

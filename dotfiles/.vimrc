@@ -133,11 +133,6 @@ nnoremap <leader>\ :nohlsearch<CR>
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
 
-" Pressing the letter o will open a new line below the current one.
-" Exit insert mode after creating a new line above or below the current line.
-nnoremap o o<esc>
-nnoremap O O<esc>
-
 " Yank from cursor to the end of line.
 nnoremap Y y$
 
