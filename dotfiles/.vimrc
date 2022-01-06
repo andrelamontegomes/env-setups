@@ -24,7 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'airblade/vim-gitgutter'
-  Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
+  Plug 'mg979/vim-visual-multi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
 
@@ -62,7 +62,14 @@ set complete-=i " Limit the files searched for auto-completes
 "=================== Text Rendering ===================" 
 set display+=lastline " Try to show a paragraph's last line
 set encoding=utf-8 " Necessary to show unicode glyphs
-set nowrap
+set breakindent
+set formatoptions=l
+set lbr
+let &showbreak='↳ '
+set wrap
+set briopt+=list:-1
+set formatlistpat=^\\s*\\*\\+\\s
+autocmd Filetype ledger setlocal nowrap
 
 "=================== User Interface ===================" 
 set ruler
@@ -70,7 +77,6 @@ set mouse=a " Allow mouse-control
 set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
-set showbreak=+++
 set title
 set list
 set listchars=tab:>-
@@ -111,10 +117,6 @@ let g:netew_liststyle =3
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-" augroup ProjectDrawer
-"   autocmd!
-"   autocmd VimEnter * :Vexplore
-" augroup END
 
 " Refresh Vim buffers on git changes
 set autoread
@@ -124,10 +126,8 @@ autocmd FocusGained * checktime
 "let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 map ; :GFiles<CR> 
 
-" Mapping Commands
-
+"==================  Mapping Commands ======" 
 let mapleader = '\'
-
 nnoremap <leader>\ :nohlsearch<CR>
 
 " Press the space bar to type the : character in command mode.
