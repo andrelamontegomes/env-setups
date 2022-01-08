@@ -94,7 +94,7 @@ set undoreload=10000
 set autochdir
 set undolevels=1000	
 set backspace=indent,eol,start
-set shiftwidth=2 tabstop=2 expandtab
+" set shiftwidth=2 tabstop=2 expandtab
 set autoread " Auto reload files that are changed outside of vim
 set vb t_vb= " Removes annyoing beeps when bad command
 set noswapfile " Disable creating .swp files
@@ -123,7 +123,6 @@ set autoread
 autocmd FocusGained * checktime
 
 "=================== fzf ===================" 
-"let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 map ; :GFiles<CR> 
 
 "==================  Mapping Commands ======" 
@@ -197,6 +196,7 @@ inoremap ""     "
 syntax on
 set termguicolors
 colorscheme onedark
+set background=dark
 
 let g:lightline = {
   \ 'colorscheme': 'onedark',
