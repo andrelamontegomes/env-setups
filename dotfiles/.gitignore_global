@@ -1,0 +1,4 @@
+.byebug_history
+*.sw?
+.*.sw?
+.DS_Store
