@@ -68,7 +68,6 @@ set formatoptions=l
 set lbr
 let &showbreak='↳ '
 set wrap
-set briopt+=list:-1
 set formatlistpat=^\\s*\\*\\+\\s
 autocmd Filetype ledger setlocal nowrap
 

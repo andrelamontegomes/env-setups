@@ -5,3 +5,8 @@
 2. Vimrc
 3. Tmux
 3. Taskwarrier
+
+```bash
+# Link files
+sudo ln -s /path/to/repo/file ~/.file
+```
