@@ -1,6 +1,5 @@
 export TERM=xterm-256color
 export PATH=$PATH:$HOME/workspace/_utils
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="onedark"
