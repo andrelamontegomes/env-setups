@@ -1,4 +1,3 @@
-export TERM=xterm-256color
 export PATH=$PATH:$HOME/workspace/_utils
 
 export ZSH=$HOME/.oh-my-zsh
