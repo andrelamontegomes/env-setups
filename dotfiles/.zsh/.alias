@@ -25,7 +25,7 @@ alias more='less'
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
-alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -la | grep '^l'"
+alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -lao --color | grep '^l'"
 
 ########################################
 ### Heroku alias
