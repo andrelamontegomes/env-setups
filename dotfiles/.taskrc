@@ -158,3 +158,4 @@ color.sync.rejected=rgb004
 # Command: undo
 color.undo.after=color031
 color.undo.before=color031
+context=bigsun
