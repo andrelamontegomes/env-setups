@@ -31,6 +31,7 @@ search.case.sensitive=no
 urgency.user.tag.qw.coefficient=10.0 # qw = quick win
 urgency.user.tag.chores.coefficient=3.0
 urgency.user.tag.sam.coefficient=8.0
+urgency.user.tag.family.coefficient=6.0
 urgency.user.tag.people.coefficient=5.0
 
 # Cocoon Urgency
@@ -53,10 +54,10 @@ context.cocoon.write=pro:cocoon
 
 # Custom Reports
 # default
-report.top.columns=id,project,description.count,tags
-report.top.labels=ID,Proj,Description,Tags
+report.top.columns=id,project,priority,due,description.count,tags
+report.top.labels=ID,Proj,Pri,Due,Description,Tags
 report.top.filter=pro.not:bigsun status:pending limit:page -WAITING -BLOCKED
-report.top.sort=due+,start-,urgency-/,priority-/,project+,description+
+report.top.sort=due+,start-,priority-/,urgency-/,project+
 
 ###############################################################################
 #
