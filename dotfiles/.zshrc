@@ -10,7 +10,7 @@ plugins=(
   sudo
   vi-mode
   wd
-  copydir
+  copypath
   copyfile
   dirhistory
   history
