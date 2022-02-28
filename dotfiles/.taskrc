@@ -53,11 +53,10 @@ context.cocoon.write=pro:cocoon
 
 # Custom Reports
 # default
-report.top.columns=id,priority,project,description.count,tags
-#report.top.filter=status:pending (priority:H or priority:M) limit:page
-report.top.filter=pro.not:bigsun (status:pending or status:waiting) limit:8
-report.top.labels=ID,P,Project,Description,Tags
-report.top.sort=urgency-/,priority-/,project-,description+
+report.top.columns=id,project,description.count,tags
+report.top.labels=ID,Proj,Description,Tags
+report.top.filter=pro.not:bigsun status:pending limit:page -WAITING -BLOCKED
+report.top.sort=due+,start-,urgency-/,priority-/,project+,description+
 
 ###############################################################################
 #
