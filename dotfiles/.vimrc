@@ -209,7 +209,7 @@ if (empty($TMUX))
   endif
 endif
 
-"let g:onedark_termcolors=16
+let g:onedark_termcolors=16
 let g:onedark_hide_endofbuffer=1
 
 set cursorline
