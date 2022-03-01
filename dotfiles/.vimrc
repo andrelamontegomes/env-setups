@@ -73,7 +73,6 @@ set formatlistpat=^\\s*\\*\\+\\s
 set ruler
 set mouse=a " Allow mouse-control
 set number relativenumber
-set numberwidth=5
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
 set title
@@ -194,7 +193,6 @@ inoremap ""     "
 "=================== Theme ===================" 
 syntax on
 
-"
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
@@ -211,7 +209,7 @@ if (empty($TMUX))
   endif
 endif
 
-let g:onedark_termcolors=16
+"let g:onedark_termcolors=16
 let g:onedark_hide_endofbuffer=1
 
 set cursorline
@@ -222,7 +220,7 @@ set cursorcolumn
 "
 augroup colorextend
  autocmd!
- autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#56B6C2" } })
+ autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
@@ -231,11 +229,5 @@ let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 
-"autocmd VimEnter * source ~/.vimrc
-"if exists("g:loaded_webdevicons")
-"	call webdevicons#refresh()
-"endif
-
 set background=dark
-
 colorscheme onedark
