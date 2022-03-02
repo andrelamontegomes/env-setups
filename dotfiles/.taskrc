@@ -125,7 +125,7 @@ color.tagged=
 # Due
 color.due.today=rgb542
 color.due=
-color.overdue=rgb400
+color.overdue=red
 
 # Report: burndown
 color.burndown.done=on gray2
