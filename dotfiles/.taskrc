@@ -27,36 +27,31 @@ news.version=2.6.0
 # Search
 search.case.sensitive=no
 
-# Personal Urgency
+# Custom Urgency
 urgency.user.tag.qw.coefficient=10.0 # qw = quick win
 urgency.user.tag.chores.coefficient=3.0
 urgency.user.tag.sam.coefficient=8.0
 urgency.user.tag.family.coefficient=6.0
 urgency.user.tag.people.coefficient=5.0
+urgency.user.tag.chikuri.coefficient=3.0
 
-# Cocoon Urgency
-urgency.user.project.cocoon.coefficient=3.0
-urgency.user.project.cocoon.chikuri.coefficient=3.0
-
-# BigSun Urgency
-urgency.user.tag.bug.coefficient=3.0
-urgency.user.tag.cpse.coefficient=7.0
-urgency.user.tag.pr.coefficient=5.0
+# Coccon Urgency
+urgency.user.project.C.coefficient=3.0
 
 # Context
-context.bigsun.read=pro:bigsun
-context.bigsun.write=pro:bigsun
-context.personal.read=pro:personal
-context.personal.write=pro:personal
-context.cocoon.read=pro:cocoon
-context.cocoon.write=pro:cocoon
+context.B.read=pro:B
+context.B.write=pro:B
+context.P.read=pro:P
+context.P.write=pro:P
+context.C.read=pro:C
+context.C.write=pro:C
 
 
 # Custom Reports
 # default
-report.top.columns=id,project,priority,due,description.count,tags
-report.top.labels=ID,Proj,Pri,Due,Description,Tags
-report.top.filter=pro.not:bigsun status:pending limit:page -WAITING -BLOCKED
+report.top.columns=id,project,priority,description.count,tags,due
+report.top.labels=ID,Proj,Pri,Description,Tags,Due
+report.top.filter=pro.not:B status:pending limit:page -WAITING -BLOCKED
 report.top.sort=due+,start-,priority-/,urgency-/,project+
 
 ###############################################################################
