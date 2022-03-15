@@ -1,20 +1,16 @@
-# if command -v gem > /dev/null ; then
-#   export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-#   export PATH="$PATH:$GEM_HOME/bin"
-# fi
-# 
-# if command -v rbenv > /dev/null ; then
-#   if uname | grep -q 'Darwin' ; then
-#     eval "$(rbenv init -)"
-#   else
-#     export PATH="$HOME/.rbenv/bin:$PATH"
-#     eval "$(rbenv init -)"
-#     export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-#   fi
-# fi
+if command -v gem > /dev/null ; then
+  export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+  export PATH="$PATH:$GEM_HOME/bin"
+fi
 
-if uname | grep -q 'Darwin' ; then
+if command -v rbenv > /dev/null ; then
+  if uname | grep -q 'Darwin' ; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
-  eval "$(rbenv init -)"
+    eval "$(rbenv init -)"
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+  else
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+  fi
 fi
