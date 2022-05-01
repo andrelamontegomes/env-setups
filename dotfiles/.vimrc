@@ -44,6 +44,8 @@ filetype on
 filetype plugin on
 filetype indent on
 "let &t_ut=''
+set modeline
+set modelines=5
 
 "=================== Search ===================" 
 set hlsearch " Highlight the search
