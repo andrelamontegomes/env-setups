@@ -18,3 +18,8 @@ if command -v rbenv > /dev/null ; then
     export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
   fi
 fi
+
+if command -v pip3 > /dev/null ; then
+  export PATH="$PATH:$HOME/.local/bin"
+fi
+

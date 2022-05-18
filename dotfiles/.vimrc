@@ -1,11 +1,11 @@
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent !curl  -fLo ~/.vim/autoload/plug.vim --create-dirs
+	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged') 
-  Plug 'joshdick/onedark.vim'
+call plug#begin('~/.vim/plugged')
+  Plug 'dracula/vim', {'name':'dracula'}
   Plug 'sheerun/vim-polyglot'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
 
-  Plug 'junegunn/fzf'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -193,9 +193,12 @@ inoremap ""     "
 
 "=================== Theme ===================" 
 syntax on
-set termguicolors
-let g:onedark_hide_endofbuffer=1
-let g:airline_theme='onedark'
+"""set termguicolors
+set background=dark
+let g:dracula_italic = 0
+let g:dracula_colorterm = 0
+"""let g:onedark_hide_endofbuffer=1
+"""let g:airline_theme='onedark'
 
 set cursorline
 set cursorlineopt=both
@@ -206,8 +209,8 @@ autocmd WinEnter * setlocal cursorcolumn
 autocmd WinLeave * setlocal nocursorcolumn
 augroup colorextend
  autocmd!
- autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
- autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+""" autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
+""" autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-colorscheme onedark
+colorscheme dracula

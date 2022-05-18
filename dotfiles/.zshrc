@@ -39,3 +39,5 @@ fi
 if [ -f $HOME/.zsh/.paths ]; then
   source $HOME/.zsh/.paths
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
