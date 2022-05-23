@@ -5,6 +5,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+  Plug 'joshdick/onedark.vim'
   Plug 'dracula/vim', {'name':'dracula'}
   Plug 'sheerun/vim-polyglot'
   Plug 'itchyny/lightline.vim'
@@ -193,12 +194,9 @@ inoremap ""     "
 
 "=================== Theme ===================" 
 syntax on
-"""set termguicolors
-set background=dark
-let g:dracula_italic = 0
-let g:dracula_colorterm = 0
-"""let g:onedark_hide_endofbuffer=1
-"""let g:airline_theme='onedark'
+set termguicolors
+let g:onedark_hide_endofbuffer=1
+let g:airline_theme='onedark'
 
 set cursorline
 set cursorlineopt=both
@@ -208,9 +206,9 @@ autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorcolumn
 autocmd WinLeave * setlocal nocursorcolumn
 augroup colorextend
- autocmd!
-""" autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
-""" autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+  autocmd!
+  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
+  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-colorscheme dracula
+colorscheme onedark
