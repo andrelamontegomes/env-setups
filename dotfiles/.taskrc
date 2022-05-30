@@ -49,10 +49,10 @@ context.C.write=pro:C
 
 # Custom Reports
 # default
-report.top.columns=id,project,priority,description,tags,due
-report.top.labels=ID,Proj,Pri,Description,Tags,Due
+report.top.columns=id,project,tags,description,due
+report.top.labels=ID,Proj,Tags,Description,Due
 report.top.filter=pro.not:B status:pending limit:page -WAITING 
-report.top.sort=start-,due+,priority-/,urgency-/,project+
+report.top.sort=start-,due+,urgency-/,project+
 
 ###############################################################################
 #
