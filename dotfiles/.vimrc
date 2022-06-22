@@ -77,6 +77,7 @@ set formatlistpat=^\\s*\\*\\+\\s
 "=================== User Interface ===================" 
 set ruler
 set mouse=a " Allow mouse-control
+set colorcolumn=80
 set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
