@@ -6,7 +6,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
   Plug 'joshdick/onedark.vim'
-  Plug 'dracula/vim', {'name':'dracula'}
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/seoul256.vim'
+  Plug 'junegunn/limelight.vim'
   Plug 'sheerun/vim-polyglot'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'

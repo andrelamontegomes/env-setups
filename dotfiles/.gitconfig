@@ -16,3 +16,5 @@
 	detachedHead = false
 [pull]
 	twohead = ort
+[init]
+	defaultBranch = main
