@@ -124,12 +124,17 @@ let g:netrw_winsize = 25
 set autoread
 autocmd FocusGained * checktime
 
-"=================== fzf ===================" 
-map ; :GFiles<CR> 
 
 "==================  Mapping Commands ======" 
 let mapleader = '\'
 nnoremap <leader>\ :nohlsearch<CR>
+
+
+"==================  Moonlander Meh ======" 
+map <A><S><Cr>b :b#
+
+"=================== fzf ===================" 
+map ; :GFiles<CR> 
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
@@ -159,10 +164,10 @@ nmap j gj
 nmap k gk
 nmap H ^
 nmap L $
-nnoremap <S-Up> :m-2<CR>
-nnoremap <S-Down> :m+<CR>
-inoremap <S-Up> <Esc>:m-2<CR>
-inoremap <S-Down> <Esc>:m+<CR>
+nnoremap <S-j> :m+<CR>
+nnoremap <S-k> :m-2<CR>
+inoremap <S-j> <Esc>:m+<CR>
+inoremap <S-k> <Esc>:m-2<CR>
 
 " Yank to system clipboard
 set clipboard=unnamed
