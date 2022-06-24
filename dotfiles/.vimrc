@@ -5,15 +5,18 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+  """ Themes
   Plug 'joshdick/onedark.vim'
-  Plug 'junegunn/goyo.vim'
   Plug 'junegunn/seoul256.vim'
+
+  """ UI 
+  Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
-  Plug 'sheerun/vim-polyglot'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
+  Plug 'sheerun/vim-polyglot'
   
-  """ Syntax plugins
+  """ Syntax 
   Plug 'dense-analysis/ale'
   Plug 'yuezk/vim-js'
   Plug 'maxmellon/vim-jsx-pretty'
@@ -29,17 +32,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
 
-  """ Adnvace plugins
+  """ Advance plugins
   Plug 'itchyny/calendar.vim'
   Plug 'blindFS/vim-taskwarrior'
   Plug 'ledger/vim-ledger'
 
 call plug#end()
-
-"=================== Vim Ledger ===================" 
-let g:ledger_fillstring = '    -'
-let g:ledger_fold_blanks = 0
-autocmd Filetype ledger setlocal nowrap
 
 "=================== General ===================" 
 set nocompatible
@@ -78,6 +76,7 @@ set formatlistpat=^\\s*\\*\\+\\s
 set ruler
 set mouse=a " Allow mouse-control
 set colorcolumn=80
+set scrolloff=10
 set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
@@ -103,47 +102,19 @@ set vb t_vb= " Removes annyoing beeps when bad command
 set noswapfile " Disable creating .swp files
 set laststatus=2
 
-"=================== NERDTree ===================" 
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeGitStatusConcealBrackets = 1
-let g:NERDTreeWinSize = 30
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-
-"=================== netrw ===================" 
-let g:netrw_banner = 0
-let g:netew_liststyle =3
-let g:netrw_browse_split = 2
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
 " Refresh Vim buffers on git changes
 set autoread
 autocmd FocusGained * checktime
 
-
 "==================  Mapping Commands ======" 
 let mapleader = '\'
 nnoremap <leader>\ :nohlsearch<CR>
-
-
-"==================  Moonlander Meh ======" 
-map <A><S><Cr>b :b#
-
-"=================== fzf ===================" 
-map ; :GFiles<CR> 
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
 
 " Yank from cursor to the end of line.
 nnoremap Y y$
-
-nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
 
 command Wq wq
 command WQ wq
@@ -197,10 +168,61 @@ inoremap "      ""<Left>
 inoremap "<CR>  "<CR>"<Esc>O
 inoremap ""     "
 
-" Custom Commands
+"------------------  Moonlander Meh ------" 
+map <A><S><Cr>b :b#
+
+"=================== Custom Commands ===================" 
 :command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
 
-"=================== Theme ===================" 
+"=================== PLUGINS ======================" 
+
+"------------------- Goyo -------------------" 
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+  endif
+  set number relativenumber
+  set scrolloff=999
+  Limelight
+  colorscheme seoul256
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+  endif
+  set number relativenumber
+  set scrolloff=10
+  Limelight!
+  colorscheme onedark
+endfunction
+
+"------------------- fzf -------------------" 
+map ; :GFiles<CR> 
+
+"------------------- Ledger -------------------" 
+let g:ledger_fillstring = '    -'
+let g:ledger_fold_blanks = 0
+autocmd Filetype ledger setlocal nowrap
+
+"------------------- NERDTree -------------------" 
+nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeGitStatusConcealBrackets = 1
+let g:NERDTreeWinSize = 30
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"------------------- netrw -------------------" 
+let g:netrw_banner = 0
+let g:netew_liststyle =3
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+
+
+"=================== THEME ===================" 
 syntax on
 set termguicolors
 let g:onedark_hide_endofbuffer=1
