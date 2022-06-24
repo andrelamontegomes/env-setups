@@ -75,9 +75,7 @@ set formatlistpat=^\\s*\\*\\+\\s
 "=================== User Interface ===================" 
 set ruler
 set mouse=a " Allow mouse-control
-set colorcolumn=80
 set scrolloff=10
-set number relativenumber
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
 set title
@@ -86,6 +84,16 @@ set listchars=tab:>-
 set wildmenu
 set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+set number relativenumber
+set cursorline
+set cursorlineopt=both
+set cursorcolumn
+set colorcolumn=80
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+autocmd WinEnter * setlocal cursorcolumn
+autocmd WinLeave * setlocal nocursorcolumn
     
 "=================== Undo Backup =========================" 
 set undodir=~/.vim/backup
@@ -138,8 +146,6 @@ nmap H ^
 nmap L $
 nnoremap <S-j> :m+<CR>
 nnoremap <S-k> :m-2<CR>
-inoremap <S-j> <Esc>:m+<CR>
-inoremap <S-k> <Esc>:m-2<CR>
 
 " Yank to system clipboard
 set clipboard=unnamed
@@ -174,26 +180,50 @@ map <A><S><Cr>b :b#
 "=================== Custom Commands ===================" 
 :command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
 
-"=================== PLUGINS ======================" 
+"============================================
+"============= PLUGINS ======================
+"============================================
 
-"------------------- Goyo -------------------" 
+"-------------------------------------------- 
+"------------- Limelight --------------------
+"-------------------------------------------- 
+"let g:limelight_paragraph = 1
+
+"-------------------------------------------- 
+"------------- Goyo ------------------------- 
+"-------------------------------------------- 
+let g:goyo_height='95%'
+
 function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-  endif
-  set number relativenumber
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
   set scrolloff=999
-  Limelight
+  set nocursorline
+  set nocursorcolumn
+  
   colorscheme seoul256
 endfunction
 
 function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
+    " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
   endif
-  set number relativenumber
-  set scrolloff=10
+
   Limelight!
+  set scrolloff=10
   colorscheme onedark
 endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "------------------- fzf -------------------" 
 map ; :GFiles<CR> 
@@ -221,19 +251,18 @@ let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-"=================== THEME ===================" 
+"=================== THEMES ===================" 
 syntax on
 set termguicolors
+set background=dark
+
+"=================== SEOUL256 ===================" 
+let g:seoul256_background=236
+
+"=================== ONEDARK ===================" 
 let g:onedark_hide_endofbuffer=1
 let g:airline_theme='onedark'
 
-set cursorline
-set cursorlineopt=both
-set cursorcolumn
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-autocmd WinEnter * setlocal cursorcolumn
-autocmd WinLeave * setlocal nocursorcolumn
 augroup colorextend
   autocmd!
   autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
