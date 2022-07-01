@@ -193,6 +193,7 @@ map <A><S><Cr>b :b#
 "------------- Goyo ------------------------- 
 "-------------------------------------------- 
 let g:goyo_height='95%'
+let g:goyo_width='85%'
 
 function! s:goyo_enter()
   let b:quitting = 0
@@ -219,6 +220,9 @@ function! s:goyo_leave()
 
   Limelight!
   set scrolloff=10
+  set cursorline
+  set cursorcolumn
+
   colorscheme onedark
 endfunction
 
