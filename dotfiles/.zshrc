@@ -1,4 +1,6 @@
-export PATH=$PATH:$HOME/workspace/_utils
+export WORKSPACE=$HOME/workspace
+export OBSIDIAN=$WORKSPACE/obsidian
+export PATH=$PATH:$WORKSPACE/_utils
 export EDITOR=vim
 
 export ZSH=$HOME/.oh-my-zsh
