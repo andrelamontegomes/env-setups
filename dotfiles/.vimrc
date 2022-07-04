@@ -19,6 +19,9 @@ call plug#begin('~/.vim/plugged')
   """ Syntax 
   Plug 'dense-analysis/ale'
   Plug 'yuezk/vim-js'
+  Plug 'prettier/vim-prettier', {
+    \ 'do': 'yarn install --frozen-lockfile --production',
+    \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'markdown', 'yaml', 'html'] }
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
