@@ -261,10 +261,11 @@ let g:netrw_winsize = 25
 "=================== THEMES ===================" 
 syntax on
 set termguicolors
-set background=dark
+set background=light
 
 "=================== SEOUL256 ===================" 
 let g:seoul256_background=236
+let g:seoul256_light_background=256
 
 "=================== ONEDARK ===================" 
 let g:onedark_hide_endofbuffer=1
@@ -276,4 +277,4 @@ augroup colorextend
   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-colorscheme onedark
+colorscheme seoul256-light
