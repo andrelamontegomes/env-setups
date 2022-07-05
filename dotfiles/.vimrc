@@ -262,8 +262,18 @@ let g:netrw_winsize = 25
 "=================== FileType Formatting ===================" 
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
 autocmd Filetype CSV_Markdown setlocal nowrap
-au BufNewFile,BufRead *.csv.md syntax match Comment "\v#.*$"
-au BufNewFile,BufRead *.csv.md syntax match Error "\v\=.*$"
+au BufNewFile,BufRead *.csv.md syntax match Comment "\v\=.*$"
+au BufNewFile,BufRead *.csv.md syntax match Error "\v\+debt"
+au BufNewFile,BufRead *.csv.md syntax match Function "\v\+home"
+au BufNewFile,BufRead *.csv.md syntax match Constant "\v\+tech"
+au BufNewFile,BufRead *.csv.md syntax match Constant "\v\+office"
+au BufNewFile,BufRead *.csv.md syntax match Boolean "\v\+upgrade"
+au BufNewFile,BufRead *.csv.md syntax match Statement "\v\+clothing"
+au BufNewFile,BufRead *.csv.md syntax match String "\v\+health"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\+cooking"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\+gift"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\+travel"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\+camping"
 
 "=================== THEMES ===================" 
 syntax on
