@@ -259,6 +259,12 @@ let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+"=================== FileType Formatting ===================" 
+au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
+autocmd Filetype CSV_Markdown setlocal nowrap
+au BufNewFile,BufRead *.csv.md syntax match Comment "\v#.*$"
+au BufNewFile,BufRead *.csv.md syntax match Error "\v\=.*$"
+
 "=================== THEMES ===================" 
 syntax on
 set termguicolors
