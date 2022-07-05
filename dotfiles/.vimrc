@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   """ Themes
   Plug 'joshdick/onedark.vim'
   Plug 'junegunn/seoul256.vim'
+  Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 
   """ UI 
   Plug 'junegunn/goyo.vim'
@@ -261,7 +262,7 @@ let g:netrw_winsize = 25
 "=================== THEMES ===================" 
 syntax on
 set termguicolors
-set background=light
+set background=dark
 
 "=================== SEOUL256 ===================" 
 let g:seoul256_background=236
@@ -277,4 +278,4 @@ augroup colorextend
   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-colorscheme seoul256-light
+colorscheme onedark
