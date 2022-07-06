@@ -303,10 +303,16 @@ let g:seoul256_light_background=256
 let g:onedark_hide_endofbuffer=1
 let g:airline_theme='onedark'
 
+colorscheme onedark
+
 augroup colorextend
   autocmd!
-  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
-  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+  if(g:colors_name ==# "seoul256")
+    autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "NONE" } })
+    autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "NONE" } })
+  elseif(g:colors_name ==# "onedark")
+    autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
+    autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+  else
+  endif
 augroup END
-
-colorscheme onedark
