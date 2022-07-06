@@ -8,7 +8,6 @@ call plug#begin('~/.vim/plugged')
   """ Themes
   Plug 'joshdick/onedark.vim'
   Plug 'junegunn/seoul256.vim'
-  Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 
   """ UI 
   Plug 'junegunn/goyo.vim'
@@ -196,8 +195,8 @@ map <A><S><Cr>b :b#
 "-------------------------------------------- 
 "------------- Goyo ------------------------- 
 "-------------------------------------------- 
-let g:goyo_height='95%'
-let g:goyo_width='90%'
+let g:goyo_height='85%'
+let g:goyo_width='85%'
 
 function! s:goyo_enter()
   let b:quitting = 0
@@ -308,8 +307,6 @@ colorscheme onedark
 augroup colorextend
   autocmd!
   if(g:colors_name ==# "seoul256")
-    autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "NONE" } })
   elseif(g:colors_name ==# "onedark")
     autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
     autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
