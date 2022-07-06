@@ -197,7 +197,7 @@ map <A><S><Cr>b :b#
 "------------- Goyo ------------------------- 
 "-------------------------------------------- 
 let g:goyo_height='95%'
-let g:goyo_width='85%'
+let g:goyo_width='90%'
 
 function! s:goyo_enter()
   let b:quitting = 0
