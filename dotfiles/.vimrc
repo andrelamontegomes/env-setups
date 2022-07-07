@@ -134,10 +134,12 @@ function! ToggleLineColumn()
 endfunction
 
 nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader>w :wq!<CR>
+nnoremap <leader>q :wq!<CR>
+nnoremap <leader>b :b#<CR>
 nnoremap <leader>n :call ToggleLineNumber()<CR>
 nnoremap <leader>c :call ToggleLineColumn()<CR>
-
+nnoremap <leader>g :Git add .<CR> 
+nnoremap <leader>s :Silent ,auto-save<CR>
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
