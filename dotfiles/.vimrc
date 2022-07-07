@@ -121,7 +121,9 @@ autocmd FocusGained * checktime
 "==================  Mapping Commands ======" 
 
 "==================  Leader mapping  =====" 
-let mapleader = ','
+" TODO: highlight linenr when leader is active
+nnoremap <space> <nop>
+let mapleader = " "
 
 function! ToggleLineNumber()
   set norelativenumber!
@@ -134,15 +136,24 @@ function! ToggleLineColumn()
 endfunction
 
 nnoremap <leader>h :nohlsearch<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>q :wq!<CR>
 nnoremap <leader>b :b#<CR>
+
+nnoremap <leader>as :Silent ,auto-save<CR>
 nnoremap <leader>n :call ToggleLineNumber()<CR>
 nnoremap <leader>c :call ToggleLineColumn()<CR>
-nnoremap <leader>g :Git add .<CR> 
-nnoremap <leader>s :Silent ,auto-save<CR>
+
+nnoremap <leader>ga :Git add .<CR> 
+nnoremap <leader>gs :Git status<CR> 
+nnoremap <leader>gd :Git diff .<CR> 
+nnoremap <leader>gD :Git diff<CR> 
+
+nnoremap <leader>1 :Goyo<CR> 
+nnoremap <leader>2 :TableModeToggle<CR> 
 
 " Press the space bar to type the : character in command mode.
-nnoremap <space> :
+nnoremap , :
 
 " Yank from cursor to the end of line.
 nnoremap Y y$
@@ -324,7 +335,7 @@ let g:seoul256_light_background=256
 
 "=================== ONEDARK ===================" 
 let g:onedark_hide_endofbuffer=1
-let g:airline_theme='onedark'
+let g:airline_theme="onedark"
 
 augroup colorextend
   autocmd!
