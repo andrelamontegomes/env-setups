@@ -152,6 +152,9 @@ nnoremap <leader>gD :Git diff<CR>
 nnoremap <leader>1 :Goyo<CR> 
 nnoremap <leader>2 :TableModeToggle<CR> 
 
+nnoremap <leader>q :colorscheme onedark<CR> 
+nnoremap <leader>e :colorscheme seoul256<CR> 
+
 " Press the space bar to type the : character in command mode.
 nnoremap , :
 
