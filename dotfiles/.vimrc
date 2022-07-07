@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'itchyny/calendar.vim'
   Plug 'blindFS/vim-taskwarrior'
   Plug 'ledger/vim-ledger'
+  Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
