@@ -119,8 +119,25 @@ set autoread
 autocmd FocusGained * checktime
 
 "==================  Mapping Commands ======" 
-let mapleader = '\'
-nnoremap <leader>\ :nohlsearch<CR>
+
+"==================  Leader mapping  =====" 
+let mapleader = ','
+
+function! ToggleLineNumber()
+  set norelativenumber!
+  set nonumber!
+endfunction
+
+function! ToggleLineColumn()
+  set nocursorcolumn!
+  set nocursorline!
+endfunction
+
+nnoremap <leader>h :nohlsearch<CR>
+nnoremap <leader>w :wq!<CR>
+nnoremap <leader>n :call ToggleLineNumber()<CR>
+nnoremap <leader>c :call ToggleLineColumn()<CR>
+
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
@@ -242,10 +259,11 @@ let g:ledger_fold_blanks = 0
 autocmd Filetype ledger setlocal nowrap
 
 "------------------- NERDTree -------------------" 
-nmap <F1> :NERDTreeToggle<CR>:wincmd =<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 let g:NERDTreeWinSize = 30
 autocmd StdinReadPre * let s:std_in=1
@@ -263,6 +281,9 @@ let g:netrw_winsize = 25
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
 autocmd Filetype CSV_Markdown setlocal nowrap
 au BufNewFile,BufRead *.csv.md syntax match Comment "\v\=.*$"
+au BufNewFile,BufRead *.csv.md syntax match Comment "\v\-.*$"
+
+"=================== Finance/Ledger Table Formatting ===================" 
 au BufNewFile,BufRead *.csv.md syntax match Error "\v\+debt"
 au BufNewFile,BufRead *.csv.md syntax match Function "\v\+home"
 au BufNewFile,BufRead *.csv.md syntax match Constant "\v\+tech"
