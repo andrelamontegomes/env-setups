@@ -358,14 +358,12 @@ augroup colorextend
   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-" ================ CursorLine"
-function! CursorLineNrColorInsert(mode)
-    if a:mode == "i"
-        highlight CursorLine ctermfg=4 guifg=#268bd2
-        highlight CursorLine guifg=#268bd2
-    endif
-endfunction
-
-autocmd InsertEnter * call CursorLineNrColorInsert(v:insertmode)
-autocmd InsertLeave * highlight CursorLine ctermfg=0
-autocmd InsertLeave * highlight CursorLine guifg=NONE
+"=================== CursorLine ===================" 
+""function! CursorLineNrColorInsert(mode)
+""    if a:mode == "i"
+""        highlight CursorLine ctermfg=4 guibg=#f4f9fd guifg=fg
+""    endif
+""endfunction
+""
+""autocmd InsertEnter * call CursorLineNrColorInsert(v:insertmode)
+""autocmd InsertLeave * highlight CursorLine ctermfg=0 guibg=NONE guifg=fg
