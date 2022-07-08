@@ -94,10 +94,6 @@ set cursorline
 set cursorlineopt=both
 set cursorcolumn
 set colorcolumn=80
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-autocmd WinEnter * setlocal cursorcolumn
-autocmd WinLeave * setlocal nocursorcolumn
     
 "=================== Undo Backup =========================" 
 set undodir=~/.vim/backup
@@ -119,41 +115,6 @@ set autoread
 autocmd FocusGained * checktime
 
 "==================  Mapping Commands ======" 
-
-"==================  Leader mapping  =====" 
-" TODO: highlight linenr when leader is active
-nnoremap <space> <nop>
-let mapleader = " "
-
-function! ToggleLineNumber()
-  set norelativenumber!
-  set nonumber!
-endfunction
-
-function! ToggleLineColumn()
-  set nocursorcolumn!
-  set nocursorline!
-endfunction
-
-nnoremap <leader>h :nohlsearch<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :wq!<CR>
-nnoremap <leader>b :b#<CR>
-
-nnoremap <leader>as :Silent ,auto-save<CR>
-nnoremap <leader>n :call ToggleLineNumber()<CR>
-nnoremap <leader>c :call ToggleLineColumn()<CR>
-
-nnoremap <leader>ga :Git add .<CR> 
-nnoremap <leader>gs :Git status<CR> 
-nnoremap <leader>gd :Git diff .<CR> 
-nnoremap <leader>gD :Git diff<CR> 
-
-nnoremap <leader>1 :Goyo<CR> 
-nnoremap <leader>2 :TableModeToggle<CR> 
-
-nnoremap <leader>q :colorscheme onedark<CR> 
-nnoremap <leader>e :colorscheme seoul256<CR> 
 
 " Press the space bar to type the : character in command mode.
 nnoremap , :
@@ -216,6 +177,49 @@ map <A><S><Cr>b :b#
 
 "=================== Custom Commands ===================" 
 :command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
+
+"==================  Leader mapping  =====" 
+" TODO: highlight linenr when leader is active
+nnoremap <space> <nop>
+let mapleader = " "
+
+function! ToggleLineNumber()
+  set norelativenumber!
+  set nonumber!
+endfunction
+
+function! ToggleLineColumn()
+  set nocursorcolumn!
+  set nocursorline!
+endfunction
+
+nnoremap <leader>v <c-w>v
+
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+
+nnoremap <leader>\ :nohlsearch<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>Q :wq!<CR>
+nnoremap <leader>b :b#<CR>
+
+nnoremap <leader>as :Silent ,auto-save<CR>
+nnoremap <leader>n :call ToggleLineNumber()<CR>
+nnoremap <leader>c :call ToggleLineColumn()<CR>
+
+nnoremap <leader>ga :Git add .<CR> 
+nnoremap <leader>gs :Git status<CR> 
+nnoremap <leader>gd :Git diff .<CR> 
+nnoremap <leader>gD :Git diff<CR> 
+
+nnoremap <leader>1 :Goyo<CR> 
+nnoremap <leader>2 :TableModeToggle<CR> 
+
+nnoremap <leader>[ :colorscheme onedark<CR> 
+nnoremap <leader>] :colorscheme seoul256<CR> 
 
 "============================================
 "============= PLUGINS ======================
