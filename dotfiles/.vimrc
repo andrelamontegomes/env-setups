@@ -304,10 +304,10 @@ let g:netrw_winsize = 25
 
 "=================== FileType Formatting ===================" 
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
-au! BufNewFile,BufRead *.csv.md :TableModeEnable<CR>
 autocmd Filetype CSV_Markdown setlocal nowrap
-au BufNewFile,BufRead *.csv.md syntax match Comment "\v\=.*$"
-au BufNewFile,BufRead *.csv.md syntax match Comment "\v\-.*$"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\/|"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\=.*$"
+au BufNewFile,BufRead *.csv.md syntax match Structure "\v\-.*$"
 
 "=================== Finance/Ledger Table Formatting ===================" 
 au BufNewFile,BufRead *.csv.md syntax match Error "\v\+debt"
@@ -347,6 +347,8 @@ let g:seoul256_background=236
 let g:seoul256_light_background=256
 
 "=================== ONEDARK ===================" 
+colorscheme onedark
+
 let g:onedark_hide_endofbuffer=1
 let g:airline_theme="onedark"
 
@@ -356,4 +358,14 @@ augroup colorextend
   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
-colorscheme onedark
+" ================ CursorLine"
+function! CursorLineNrColorInsert(mode)
+    if a:mode == "i"
+        highlight CursorLine ctermfg=4 guifg=#268bd2
+        highlight CursorLine guifg=#268bd2
+    endif
+endfunction
+
+autocmd InsertEnter * call CursorLineNrColorInsert(v:insertmode)
+autocmd InsertLeave * highlight CursorLine ctermfg=0
+autocmd InsertLeave * highlight CursorLine guifg=NONE
