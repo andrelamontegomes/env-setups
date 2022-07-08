@@ -194,24 +194,29 @@ function! ToggleLineColumn()
 endfunction
 
 nnoremap <leader>v <c-w>v
+nnoremap <leader>s <c-w>s
 
 nnoremap <leader>h <c-w>h
 nnoremap <leader>j <c-w>j
 nnoremap <leader>k <c-w>k
 nnoremap <leader>l <c-w>l
 
-nnoremap <leader>\ :nohlsearch<CR>
+nnoremap <leader>/ :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>Q :wq!<CR>
 nnoremap <leader>b :b#<CR>
+nnoremap <leader>T :terminal<CR>
 
-nnoremap <leader>as :Silent ,auto-save<CR>
+nnoremap <leader>fr :%s///g
 nnoremap <leader>n :call ToggleLineNumber()<CR>
 nnoremap <leader>c :call ToggleLineColumn()<CR>
+nnoremap <leader>as :Silent ,auto-save<CR>
 
 nnoremap <leader>ga :Git add .<CR> 
 nnoremap <leader>gs :Git status<CR> 
+nnoremap <leader>gc :Git commit<CR> 
+nnoremap <leader>gC :Git commit -m 
 nnoremap <leader>gd :Git diff .<CR> 
 nnoremap <leader>gD :Git diff<CR> 
 
@@ -299,6 +304,7 @@ let g:netrw_winsize = 25
 
 "=================== FileType Formatting ===================" 
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
+au! BufNewFile,BufRead *.csv.md :TableModeEnable<CR>
 autocmd Filetype CSV_Markdown setlocal nowrap
 au BufNewFile,BufRead *.csv.md syntax match Comment "\v\=.*$"
 au BufNewFile,BufRead *.csv.md syntax match Comment "\v\-.*$"
