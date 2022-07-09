@@ -248,6 +248,8 @@ function! s:goyo_enter()
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
   set scrolloff=999
+  set number
+  set relativenumber
   set nocursorline
   set nocursorcolumn
   
