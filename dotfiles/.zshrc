@@ -43,4 +43,3 @@ if [ -f $HOME/.zsh/.paths ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export RUBY_CONFIGURE_OPTS='--with-openssl-dir=/opt/homebrew/opt/openssl@1.1'
