@@ -10,11 +10,16 @@
   mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
 [user]
-	name = andre
-	email = me@andrelgomes.com
+	name = Andre L Gomes
+	email = andre@andrelgomes.com
+	signingkey = 96AB01DAE3299E213DB7B674CCC11D6EEAEA3AC4
 [advice]
 	detachedHead = false
 [pull]
 	twohead = ort
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
