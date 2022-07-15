@@ -2,7 +2,7 @@ set ssl_starttls=yes
 set ssl_force_tls=yes
 set send_charset="us-ascii:utf-8"
 
-set imap_user = "your.email@protonmail.com"
+set imap_user = "andre@andrelgomes.com"
 set imap_pass = "proton-bridge-password"
 
 set spoolfile = "imap://localhost:1143/INBOX"
@@ -17,7 +17,7 @@ set certificate_file = "~/.mutt/certificates"
 set smtp_authenticators = "gssapi:login"
 
 # ================  SMTP  ====================
-set smtp_url = "smtp://your.user.name@protonmail.com:your-bridge-password@localhost:1025/"
+set smtp_url = "smtp://andrelgomes@protonmail.com:your-bridge-password@localhost:1025/"
 
 set move = no
 set imap_keepalive = 900
@@ -27,8 +27,8 @@ set editor = `echo \$EDITOR`
 set edit_headers = yes  # See the headers when editing
 set charset = UTF-8     # value of $LANG; also fallback for 
 unset use_domain        # because joe@localhost is just embarrassing
-set realname = "Your Name"
-set from = "your.user.name@protonmail.com"
+set realname = "Andre Lamonte Gomes"
+set from = "andre@andrelgomes.com"
 set use_from = yes
 
 auto_view text/html # view html automatically
