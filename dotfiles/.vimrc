@@ -291,7 +291,6 @@ nnoremap <leader>t :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeShowHidden = 1
-let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 let g:NERDTreeWinSize = 30
 autocmd StdinReadPre * let s:std_in=1
