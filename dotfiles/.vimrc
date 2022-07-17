@@ -248,7 +248,7 @@ function! s:goyo_enter()
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-  set scrolloff=999
+  "set scrolloff=999
   set number
   set relativenumber
   set nocursorline
@@ -268,7 +268,7 @@ function! s:goyo_leave()
   endif
 
   Limelight!
-  set scrolloff=10
+  " set scrolloff=10
   set cursorline
   set cursorcolumn
 
@@ -356,7 +356,7 @@ let g:airline_theme="onedark"
 
 augroup colorextend
   autocmd!
-  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#5C6370" } })
+  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#13ffff" } })
   autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
 
