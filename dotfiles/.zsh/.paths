@@ -1,3 +1,6 @@
+########################################
+### MacOS Applications Configuration
+########################################
 if uname | grep -q 'Darwin' ; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

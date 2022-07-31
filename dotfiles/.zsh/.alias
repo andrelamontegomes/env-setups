@@ -8,7 +8,7 @@ fi
 ########################################
 ### Windows applications alias
 ########################################
-if uname -r | grep -q 'Microsoft' ; then
+if grep -q 'microsoft' <<< uname -r; then
   alias clip="clip.exe <"
   alias open="explorer.exe"
   alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
