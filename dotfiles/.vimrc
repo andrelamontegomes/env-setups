@@ -104,7 +104,7 @@ set undoreload=10000
 set autochdir
 set undolevels=1000	
 set backspace=indent,eol,start
-" set shiftwidth=2 tabstop=2 expandtab
+set shiftwidth=2 tabstop=2 expandtab
 set autoread " Auto reload files that are changed outside of vim
 set vb t_vb= " Removes annyoing beeps when bad command
 set noswapfile " Disable creating .swp files
