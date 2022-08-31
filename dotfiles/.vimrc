@@ -79,7 +79,6 @@ set formatlistpat=^\\s*\\*\\+\\s
 "=================== User Interface ===================" 
 set ruler
 set mouse=a " Allow mouse-control
-set scrolloff=10
 set cino+=(0 " When in unclosed parens, ie args, have them line up
 set showmatch
 set title
@@ -90,6 +89,8 @@ set wildmode=list:longest
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 set number relativenumber
+set numberwidth=3
+
 set cursorline
 set cursorlineopt=both
 set cursorcolumn
@@ -248,28 +249,28 @@ function! s:goyo_enter()
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-  "set scrolloff=999
-  set number
-  set relativenumber
-  set nocursorline
+  set nonumber
+  set norelativenumber
+  ""set nocursorline
   set nocursorcolumn
   
   colorscheme seoul256
 endfunction
 
 function! s:goyo_leave()
-    " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
+  " Quit Vim if this is the only remaining buffer
+"   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+"     if b:quitting_bang
+"       qa!
+"     else
+"       qa
+"     endif
+"   endif
 
-  Limelight!
-  " set scrolloff=10
-  set cursorline
+  "Limelight!
+  ""set cursorline
+  set number
+  set relativenumber
   set cursorcolumn
 
   colorscheme onedark
@@ -349,16 +350,17 @@ let g:seoul256_background=236
 let g:seoul256_light_background=256
 
 "=================== ONEDARK ===================" 
-colorscheme onedark
 
 let g:onedark_hide_endofbuffer=1
 let g:airline_theme="onedark"
 
 augroup colorextend
   autocmd!
-  autocmd ColorScheme * call onedark#extend_highlight("LineNr", { "fg": { "gui": "#13ffff" } })
-  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
+  autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#13ffff" } })
+  ":"autocmd ColorScheme * call onedark#extend_highlight("CursorLineNr", { "fg": { "gui": "#56B6C2" } })
 augroup END
+
+colorscheme onedark
 
 "=================== CursorLine ===================" 
 ""function! CursorLineNrColorInsert(mode)
