@@ -25,4 +25,3 @@ fi
 if command -v pip3 > /dev/null ; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
-
