@@ -93,7 +93,6 @@ set numberwidth=3
 set cursorline
 set cursorlineopt=both
 set cursorcolumn
-set colorcolumn=80
     
 "=================== Undo Backup =========================" 
 set undodir=~/.vim/backup
@@ -234,8 +233,8 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "-------------------------------------------- 
 "------------- Goyo ------------------------- 
 "-------------------------------------------- 
-let g:goyo_height='85%'
-let g:goyo_width='85%'
+"let g:goyo_height='85%'
+"let g:goyo_width='85%'
 
 function! s:goyo_enter()
   let b:quitting = 0
@@ -243,13 +242,12 @@ function! s:goyo_enter()
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-  set number
-  set relativenumber
-  set numberwidth=1
+  set nonumber
+  set norelativenumber
   set nocursorline
   set nocursorcolumn
-  
-  colorscheme seoul256
+
+  colorscheme seoul256-light
 endfunction
 
 function! s:goyo_leave()
@@ -264,7 +262,6 @@ function! s:goyo_leave()
 
   set number
   set relativenumber
-  set numberwidth=3
   set cursorline
   set cursorcolumn
 
