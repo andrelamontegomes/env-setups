@@ -11,7 +11,6 @@ call plug#begin('~/.vim/plugged')
 
   """ UI 
   Plug 'junegunn/goyo.vim'
-  Plug 'junegunn/limelight.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'sheerun/vim-polyglot'
@@ -233,11 +232,6 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "============================================
 
 "-------------------------------------------- 
-"------------- Limelight --------------------
-"-------------------------------------------- 
-"let g:limelight_paragraph = 1
-
-"-------------------------------------------- 
 "------------- Goyo ------------------------- 
 "-------------------------------------------- 
 let g:goyo_height='85%'
@@ -249,9 +243,10 @@ function! s:goyo_enter()
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-  set nonumber
-  set norelativenumber
-  ""set nocursorline
+  set number
+  set relativenumber
+  set numberwidth=1
+  set nocursorline
   set nocursorcolumn
   
   colorscheme seoul256
@@ -259,18 +254,18 @@ endfunction
 
 function! s:goyo_leave()
   " Quit Vim if this is the only remaining buffer
-"   if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-"     if b:quitting_bang
-"       qa!
-"     else
-"       qa
-"     endif
-"   endif
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
 
-  "Limelight!
-  ""set cursorline
   set number
   set relativenumber
+  set numberwidth=3
+  set cursorline
   set cursorcolumn
 
   colorscheme onedark

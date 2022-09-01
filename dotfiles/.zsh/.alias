@@ -1,4 +1,9 @@
 ########################################
+### General alias
+########################################
+alias note="vim ~/workspace/obsidian/quick-note.md"
+
+########################################
 ### Linux Applications Configuration
 ########################################
 if uname | grep -q 'Linux' ; then
