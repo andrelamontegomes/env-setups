@@ -89,6 +89,7 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 set number relativenumber
 set numberwidth=3
+set foldcolumn=2
 
 set cursorline
 set cursorlineopt=both
@@ -242,12 +243,16 @@ function! s:goyo_enter()
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
 
-  set nonumber
-  set norelativenumber
+  set number
+  set relativenumber
   set nocursorline
   set nocursorcolumn
 
-  colorscheme seoul256-light
+  colorscheme seoul256
+
+  hi FoldColumn guibg=bg guifg=fg
+  hi LineNr guibg=bg guifg=#262626
+  hi CursorLineNr guibg=bg guifg=#5f875f
 endfunction
 
 function! s:goyo_leave()
@@ -353,13 +358,3 @@ augroup colorextend
 augroup END
 
 colorscheme onedark
-
-"=================== CursorLine ===================" 
-""function! CursorLineNrColorInsert(mode)
-""    if a:mode == "i"
-""        highlight CursorLine ctermfg=4 guibg=#f4f9fd guifg=fg
-""    endif
-""endfunction
-""
-""autocmd InsertEnter * call CursorLineNrColorInsert(v:insertmode)
-""autocmd InsertLeave * highlight CursorLine ctermfg=0 guibg=NONE guifg=fg
