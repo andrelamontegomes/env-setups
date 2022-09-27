@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/workspace/tasks
+data.location=~/workspace/_tasks
 
 rc.regex=on
 uda.reviewed.type=date
