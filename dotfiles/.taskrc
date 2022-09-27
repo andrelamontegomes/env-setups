@@ -153,3 +153,5 @@ color.sync.rejected=rgb004
 # Command: undo
 color.undo.after=color031
 color.undo.before=color031
+uda.estimate.type=numeric
+uda.estimate.label=Est
