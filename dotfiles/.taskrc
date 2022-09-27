@@ -41,8 +41,8 @@ urgency.uda.points.0.coefficient=10.0
 
 # Custom Reports
 # Default report
-report.top.columns=id,project,description,tags,due
-report.top.labels=ID,Proj,Description,Tags,Due
+report.top.columns=id,description,tags,project,due
+report.top.labels=ID,Description,Tags,Proj,Due
 report.top.filter=status:pending limit:page -WAITING 
 report.top.sort=start-,due+,urgency-/,project+
 
