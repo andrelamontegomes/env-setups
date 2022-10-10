@@ -28,16 +28,19 @@ news.version=2.6.0
 search.case.sensitive=no
 
 # Context
-context.P.read=pro:P
-context.P.write=pro:P
-context.C.read=pro:C
-context.C.write=pro:C
+context.cocoon.read=pro:cocoon
+context.cocoon.write=pro:cocoon
 
 # User Defined Attributes
 uda.points.type=numeric
 uda.points.label=Est
-uda.points.values=0,1,2,3,5,8,13,21,34
+uda.points.values=0,1,2,3,5,8,13
 urgency.uda.points.0.coefficient=10.0
+urgency.uda.points.1.coefficient=5.0
+urgency.uda.points.2.coefficient=3.0
+urgency.uda.points.3.coefficient=2.0
+urgency.uda.points.5.coefficient=1.0
+urgency.uda.points.8.coefficient=0.5
 
 # Custom Reports
 # Default report
@@ -47,14 +50,14 @@ report.top.filter=status:pending limit:page -WAITING
 report.top.sort=due+,start-,points-,urgency-/
 
 # Tags Urgency
-urgency.user.tag.chores.coefficient=3.0
 urgency.user.tag.sam.coefficient=8.0
 urgency.user.tag.family.coefficient=6.0
 urgency.user.tag.people.coefficient=5.0
-urgency.user.tag.chikuri.coefficient=3.0
+urgency.user.tag.chores.coefficient=3.0
 
 # Projects Urgency
-urgency.user.project.C.coefficient=3.0
+# urgency.user.project.C.coefficient=3.0
+urgency.user.project.chikuri.coefficient=3.2
 
 ###############################################################################
 #
