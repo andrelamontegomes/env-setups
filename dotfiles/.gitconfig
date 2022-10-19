@@ -18,3 +18,5 @@
 	twohead = ort
 [init]
 	defaultBranch = main
+[fetch]
+	prune = true
