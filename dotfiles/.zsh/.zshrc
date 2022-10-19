@@ -1,1 +1,0 @@
-workspace/_dotfiles/dotfiles/.zshrc
