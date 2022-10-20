@@ -158,3 +158,6 @@ color.sync.rejected=rgb004
 # Command: undo
 color.undo.after=color031
 color.undo.before=color031
+context.levelten.read=pro:lvl10
+context.levelten.write=pro:lvl10
+context=levelten
