@@ -32,6 +32,8 @@ context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
 context.levelten.read=pro:lvl10
 context.levelten.write=pro:lvl10
+context.home.read=pro.not:lvl10
+context.home.write=
 
 # User Defined Attributes
 uda.points.type=numeric
@@ -160,3 +162,4 @@ color.sync.rejected=rgb004
 # Command: undo
 color.undo.after=color031
 color.undo.before=color031
+context=home
