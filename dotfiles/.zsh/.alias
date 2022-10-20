@@ -47,14 +47,10 @@ fi
 if command -v task > /dev/null ; then
   alias tw="task"
   alias twa="task add"
-  alias twap="task add pro:personal"
   alias twac="task add pro:cocoon"
-  alias twab="task add pro:bigsun"
+  alias twal="task add pro:lvl10"
   alias twe="task edit"
   alias twt="task top"
-  alias twb="task pro:bigsun"
-  alias twp="task pro:personal"
-  alias twc="task pro:cocoon"
 fi
 
 ########################################
