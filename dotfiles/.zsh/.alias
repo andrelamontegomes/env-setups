@@ -47,14 +47,13 @@ fi
 if command -v task > /dev/null ; then
   alias tw="task"
   alias twa="task add"
-  alias twac="task add pro:cocoon"
-  alias twal="task add pro:lvl10"
   alias twe="task edit"
   alias tt="task top"
   alias tcn="task context none"
   alias tcl="task context levelten"
   alias tcc="task context cocoon"
   alias tch="task context home"
+  alias tcb="task context builds"
 fi
 
 ########################################
