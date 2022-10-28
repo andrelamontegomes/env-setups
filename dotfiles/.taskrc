@@ -50,7 +50,7 @@ urgency.uda.points.8.coefficient=0.5
 # Default report
 report.top.columns=id,description,tags,points,due
 report.top.labels=ID,Description,Tags,Est,Due
-report.top.filter=status:pending limit:page -WAITING 
+report.top.filter=status:pending limit:30 -WAITING 
 report.top.sort=due+,start-,points-,urgency-/
 
 # Tags Urgency

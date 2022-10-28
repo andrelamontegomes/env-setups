@@ -303,13 +303,15 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
 "=================== FileType Formatting ===================" 
+"
+"=================== Finance/Ledger Table Formatting ===================" 
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
 autocmd Filetype CSV_Markdown setlocal nowrap
+au! BufWrite *.csv.md write | :TableModeRealign
 au BufNewFile,BufRead *.csv.md syntax match Structure "\v\/|"
 au BufNewFile,BufRead *.csv.md syntax match Structure "\v\=.*$"
 au BufNewFile,BufRead *.csv.md syntax match Structure "\v\-.*$"
 
-"=================== Finance/Ledger Table Formatting ===================" 
 au BufNewFile,BufRead *.csv.md syntax match Error "\v\+debt"
 au BufNewFile,BufRead *.csv.md syntax match Function "\v\+home"
 au BufNewFile,BufRead *.csv.md syntax match Constant "\v\+tech"
