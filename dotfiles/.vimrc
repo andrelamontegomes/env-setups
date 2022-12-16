@@ -63,6 +63,7 @@ set smarttab " Insert mode press tab to indent
    
 "=================== Performance ===================" 
 set complete-=i " Limit the files searched for auto-completes
+set re=2
 " set lazyredraw " Do not update screen during macro and script execution
 
 "=================== Text Rendering ===================" 
