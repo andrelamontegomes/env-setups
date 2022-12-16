@@ -36,6 +36,11 @@ context.home.read=pro.not:lvl10
 context.home.write=
 
 # User Defined Attributes
+
+## JIRA Attributes
+uda.epic.type=string
+uda.epic.label=Epic
+
 uda.points.type=numeric
 uda.points.label=Est
 uda.points.values=0,1,2,3,5,8,13
@@ -48,8 +53,8 @@ urgency.uda.points.8.coefficient=0.5
 
 # Custom Reports
 # Default report
-report.top.columns=id,description,tags,points,due
-report.top.labels=ID,Description,Tags,Est,Due
+report.top.columns=id,epic,description,tags,points,due
+report.top.labels=ID,Epic,Description,Tags,Est,Due
 report.top.filter=status:pending limit:30 -WAITING 
 report.top.sort=due+,start-,points-,urgency-/
 
@@ -164,4 +169,4 @@ color.undo.after=color031
 color.undo.before=color031
 context.builds.read=pro:builds
 context.builds.write=pro:builds
-context=home
+context=levelten
