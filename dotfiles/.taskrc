@@ -30,9 +30,9 @@ search.case.sensitive=no
 # Context
 context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
-context.levelten.read=pro:lvl10
-context.levelten.write=pro:lvl10
-context.home.read=pro.not:lvl10
+context.levelten.read=pro:levelten
+context.levelten.write=pro:levelten
+context.home.read=pro.not:levelten
 context.home.write=
 
 # User Defined Attributes
@@ -55,7 +55,7 @@ urgency.uda.points.8.coefficient=0.5
 # Default report
 report.top.columns=id,epic,description,tags,points,due
 report.top.labels=ID,Epic,Description,Tags,Est,Due
-report.top.filter=status:pending limit:30 -WAITING 
+report.top.filter=status:pending limit:page -WAITING 
 report.top.sort=due+,start-,points-,urgency-/
 
 # Tags Urgency
@@ -169,4 +169,3 @@ color.undo.after=color031
 color.undo.before=color031
 context.builds.read=pro:builds
 context.builds.write=pro:builds
-context=levelten
