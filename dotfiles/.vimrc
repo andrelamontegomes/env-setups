@@ -180,7 +180,6 @@ map <A><S><Cr>b :b#
 :command! -nargs=1 Silent execute ':silent !'.<q-args> | execute ':redraw!'
 
 "==================  Leader mapping  =====" 
-" TODO: highlight linenr when leader is active
 nnoremap <space> <nop>
 let mapleader = " "
 

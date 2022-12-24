@@ -169,3 +169,4 @@ color.undo.after=color031
 color.undo.before=color031
 context.builds.read=pro:builds
 context.builds.write=pro:builds
+context=home

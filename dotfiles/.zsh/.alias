@@ -34,6 +34,11 @@ alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --colo
 ########################################
 ### Heroku alias
 ########################################
+alias nv="nvim"
+
+########################################
+### Heroku alias
+########################################
 if command -v heroku > /dev/null ; then
   alias hrrc="heroku run rails console"
   alias hrr="heroku run rails console"
