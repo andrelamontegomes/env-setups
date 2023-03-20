@@ -31,6 +31,32 @@ function zshaddhistory() {
   echo "${1%%$'\n'}|${PWD}    " >> ~/.zsh_history_ext
 }
 
+NOW="$(date +%F-%H:%M:%S)"
+TODAY="$(date +%F)"
+TS="$(date +%s)"
+#NETWORK="$(/sbin/ifconfig | head -n1 | awk -F: '{print $1}')"
+
+function .. { cd ".." ; }
+function ... { cd "../.." ; }
+function .... { cd "../../.." ; }
+
+function f {
+  find . -iname "*${1}*" }
+
+function fd {
+  find . -iname "*${1}*" -type d }
+
+function backup () { 
+  cp -v "${1}" "${1}.${TS}" }
+
+function grep_ip {
+  grep -Eo \
+    "([0-9]{1,3}\.){3}[0-9]{1,3}" "${@}" }
+
+function grep_url {
+  grep -Eo \
+    "(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|.;]*[-A-Za-z0-9\+&@#/%=~_|]" "${@}" }
+
 # ########################################
 # ### Plugins configuration
 # ########################################
@@ -52,7 +78,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/Andre.Gomes@leveltenenergy.com/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/Andre.Gomes@leveltenenergy.com/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/home/alg/google-cloud-sdk/path.zsh.inc' ]; then . '/home/alg/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/Andre.Gomes@leveltenenergy.com/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Andre.Gomes@leveltenenergy.com/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/home/alg/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/alg/google-cloud-sdk/completion.zsh.inc'; fi
