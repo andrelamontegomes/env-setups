@@ -4,11 +4,12 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 [alias]
-  ss = status --short -uno
+  status = status --short -uno
   branch = branch | cat
   nvm = reset --hard
   mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
+	logg = log --graph --decorate --pretty=oneline --abbrev-commit
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
