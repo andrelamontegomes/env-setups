@@ -1,6 +1,7 @@
 export WORKSPACE=$HOME/workspace
 export OBSIDIAN=$WORKSPACE/obsidian
 export PATH=$PATH:$WORKSPACE/_utils
+export PATH=$PATH:$HOME/.local/bin
 export EDITOR=vim
 
 GPG_TTY=$(tty)
