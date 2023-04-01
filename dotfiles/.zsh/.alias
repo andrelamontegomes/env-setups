@@ -6,6 +6,7 @@
 ### Linux Applications Configuration
 ########################################
 if uname | grep -q 'Linux' ; then
+  alias py="python3"
   alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 fi
 
