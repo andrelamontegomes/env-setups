@@ -3,11 +3,9 @@ export OBSIDIAN=$WORKSPACE/obsidian
 export PATH=$PATH:$WORKSPACE/_utils
 export PATH=$PATH:$HOME/.local/bin
 export EDITOR=vim
-
-GPG_TTY=$(tty)
-export GPG_TTY
-
+export GPG_TTY=$(tty)
 export ZSH=$HOME/.oh-my-zsh
+
 ZSH_THEME="onedark"
 plugins=(
   git 
@@ -83,3 +81,5 @@ if [ -f '/home/alg/.gcloud/path.zsh.inc' ]; then . '/home/alg/.gcloud/path.zsh.i
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/alg/.gcloud/completion.zsh.inc' ]; then . '/home/alg/.gcloud/completion.zsh.inc'; fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
