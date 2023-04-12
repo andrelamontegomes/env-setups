@@ -39,7 +39,9 @@ function .. { cd ".." ; }
 function ... { cd "../.." ; }
 function .... { cd "../../.." ; }
 
-function f {
+alias ff='vim $(rg . | fzf | cut -d ":" -f 1)'
+
+function ff {
   find . -iname "*${1}*" }
 
 function fd {
