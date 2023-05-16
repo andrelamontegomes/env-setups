@@ -1,6 +1,11 @@
 ########################################
 ### MacOS Applications Configuration
 ########################################
+
+ export NVM_DIR="$HOME/.nvm"
+ [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+ [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 if uname | grep -q 'Darwin' ; then
   export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin/
   export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -48,10 +53,4 @@ if command -v conda > /dev/null ; then
   fi
   unset __conda_setup
   # <<< conda initialize <<<
-fi
-
-if command -v nvm > /dev/null ; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi

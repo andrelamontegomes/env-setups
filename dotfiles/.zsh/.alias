@@ -13,12 +13,14 @@ fi
 ########################################
 ### Windows applications alias
 ########################################
-if grep -q 'microsoft' <<< uname -r; then
-  export WINDOWS=/mnt/c/Users/accou
-  alias clip="clip.exe <"
-  alias open="explorer.exe"
-  alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
-fi
+# TODO: Breaks MacOS configuration, error:
+# grep: ./.gnupg/S.gpg-agent...:Operation not supported on socket
+#if grep -q 'microsoft' <<< uname -r; then
+#  export WINDOWS=/mnt/c/Users/accou
+#  alias clip="clip.exe <"
+#  alias open="explorer.exe"
+#  alias subl='/mnt/c/Program Files/Sublime Text/subl.exe'
+#fi
 
 ########################################
 ### Bash alias
