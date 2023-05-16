@@ -6,7 +6,6 @@
 ### Linux Applications Configuration
 ########################################
 if uname | grep -q 'Linux' ; then
-  alias py="python3"
   alias dslr-webcam="gphoto2 --set-config-value whitebalance="Auto" && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 fi
 
@@ -25,6 +24,8 @@ fi
 ########################################
 ### Bash alias
 ########################################
+alias nv="nvim"
+alias py="python3"
 alias sudo="sudo -v; sudo "
 alias cp="cp -v"
 alias mkdir='mkdir -p'
@@ -34,21 +35,6 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -lao --color | grep '^l'"
-
-########################################
-### Heroku alias
-########################################
-alias nv="nvim"
-
-########################################
-### Heroku alias
-########################################
-if command -v heroku > /dev/null ; then
-  alias hrrc="heroku run rails console"
-  alias hrr="heroku run rails console"
-  alias hrp="--remote production"
-  alias hrs="--remote staging"
-fi
 
 ########################################
 ### Taskwarrior alias
