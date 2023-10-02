@@ -9,7 +9,8 @@
   nvm = reset --hard
   mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
-	logg = log --graph --decorate --pretty=oneline --abbrev-commit
+	long = log --graph --decorate --pretty=oneline --abbrev-commit
+	gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
