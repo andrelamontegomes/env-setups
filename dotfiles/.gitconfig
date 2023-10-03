@@ -11,6 +11,7 @@
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
 	long = log --graph --decorate --pretty=oneline --abbrev-commit
 	gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
+	full = !"for b in $(git for-each-ref refs/heads --format='%(refname)') ; do git checkout ${b#refs/heads/} ; git pull --ff-only ; done"
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
