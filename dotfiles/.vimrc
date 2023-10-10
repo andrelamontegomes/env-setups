@@ -280,9 +280,20 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 map ; :GFiles<CR> 
 
 "------------------- Ledger -------------------" 
+au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger 
 let g:ledger_fillstring = '    -'
-let g:ledger_fold_blanks = 0
-autocmd Filetype ledger setlocal nowrap
+let g:ledger_maxwidth = 120
+let g:ledger_fold_blanks = 1
+let g:ledger_align_at = 80
+let g:ledger_autofmt_bufwritepre = 1
+"au! BufWrite *.ledger write | :%LedgerAlign 
+"autocmd Filetype ledger setlocal nowrap
+" ledger print removes comments outside of transactions
+function LedgerSort()
+  :%! ledger -f - print --sort 'date, amount' 
+  :%LedgerAlign
+endfunction
+command LedgerSort call LedgerSort()
 
 "------------------- NERDTree -------------------" 
 nnoremap <leader>t :NERDTreeToggle<CR>
@@ -302,9 +313,7 @@ let g:netrw_browse_split = 2
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-"=================== FileType Formatting ===================" 
-"
-"=================== Finance/Ledger Table Formatting ===================" 
+"=================== Table Formatting ===================" 
 au! BufNewFile,BufRead *.csv.md set filetype=CSV_Markdown
 autocmd Filetype CSV_Markdown setlocal nowrap
 au! BufWrite *.csv.md write | :TableModeRealign
