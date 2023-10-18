@@ -30,10 +30,8 @@ search.case.sensitive=no
 # Context
 context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
-context.levelten.read=pro:levelten
-context.levelten.write=pro:levelten
-context.home.read=pro.not:levelten
-context.home.write=
+context.personal.read=pro.not:lte
+context.personal.write=
 
 # User Defined Attributes
 
@@ -169,3 +167,6 @@ color.undo.after=color031
 color.undo.before=color031
 context.builds.read=pro:builds
 context.builds.write=pro:builds
+context.lte.read=pro:lte
+context.lte.write=pro:lte
+context=lte
