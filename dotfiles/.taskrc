@@ -54,7 +54,7 @@ urgency.uda.est.8.coefficient=0.5
 report.next.columns=id,description,est,jira,sprint,due,tags,project
 report.next.labels=ID,Description,Est,Jira,Sprint,Due,Tags,Proj
 report.next.filter=status:pending limit:page -WAITING 
-report.next.sort=start+,due+,sprint+,est-,urgency-/
+report.next.sort=start+,due+,sprint+,est+,urgency-/
 
 # Default report
 report.top.columns=id,epic,description,tags,points,due
