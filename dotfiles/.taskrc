@@ -40,21 +40,21 @@ uda.jira.label=Jira
 uda.sprint.type=numeric
 uda.sprint.label=Sprint
 
-uda.pts.type=numeric
-uda.pts.label=Est
-uda.pts.values=0,1,2,3,5,8,13
-urgency.uda.pts.0.coefficient=10.0
-urgency.uda.pts.1.coefficient=5.0
-urgency.uda.pts.2.coefficient=3.0
-urgency.uda.pts.3.coefficient=2.0
-urgency.uda.pts.5.coefficient=1.0
-urgency.uda.pts.8.coefficient=0.5
+uda.est.type=numeric
+uda.est.label=Est
+uda.est.values=0,1,2,3,5,8,13
+urgency.uda.est.0.coefficient=10.0
+urgency.uda.est.1.coefficient=5.0
+urgency.uda.est.2.coefficient=3.0
+urgency.uda.est.3.coefficient=2.0
+urgency.uda.est.5.coefficient=1.0
+urgency.uda.est.8.coefficient=0.5
 
 # Custom Reports
-report.next.columns=id,description,pts,jira,sprint,due,tags,project
-report.next.labels=ID,Description,Points,Jira,Sprint,Due,Tags,Proj
+report.next.columns=id,description,est,jira,sprint,due,tags,project
+report.next.labels=ID,Description,Est,Jira,Sprint,Due,Tags,Proj
 report.next.filter=status:pending limit:page -WAITING 
-report.next.sort=start+,due+,sprint+,pts-,urgency-/
+report.next.sort=start+,due+,sprint+,est-,urgency-/
 
 # Default report
 report.top.columns=id,epic,description,tags,points,due
