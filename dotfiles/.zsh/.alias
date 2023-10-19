@@ -49,8 +49,10 @@ if command -v task > /dev/null ; then
   alias tcc="task context cocoon"
   alias tch="task context home"
   alias tcb="task context builds"
+  if command -v vit > /dev/null ; then
+    alias twv="vit"
+  fi
 fi
-
 ########################################
 ### Tmux alias
 ########################################

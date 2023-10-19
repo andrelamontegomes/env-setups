@@ -34,22 +34,32 @@ context.personal.read=pro.not:lte
 context.personal.write=
 
 # User Defined Attributes
-
 ## JIRA Attributes
 uda.epic.type=string
 uda.epic.label=Epic
 
-uda.points.type=numeric
-uda.points.label=Est
-uda.points.values=0,1,2,3,5,8,13
-urgency.uda.points.0.coefficient=10.0
-urgency.uda.points.1.coefficient=5.0
-urgency.uda.points.2.coefficient=3.0
-urgency.uda.points.3.coefficient=2.0
-urgency.uda.points.5.coefficient=1.0
-urgency.uda.points.8.coefficient=0.5
+uda.jira.type=string
+uda.jira.label=Jira
+
+uda.sprint.type=numeric
+uda.sprint.label=Sprint
+
+uda.pts.type=numeric
+uda.pts.label=Est
+uda.pts.values=0,1,2,3,5,8,13
+urgency.uda.pts.0.coefficient=10.0
+urgency.uda.pts.1.coefficient=5.0
+urgency.uda.pts.2.coefficient=3.0
+urgency.uda.pts.3.coefficient=2.0
+urgency.uda.pts.5.coefficient=1.0
+urgency.uda.pts.8.coefficient=0.5
 
 # Custom Reports
+report.next.columns=id,epic,description,tags,pts,due
+report.next.labels=ID,Epic,Description,Tags,Pts,Due
+report.next.filter=status:pending limit:page -WAITING 
+report.next.sort=due+,start-,points-,urgency-/
+
 # Default report
 report.top.columns=id,epic,description,tags,points,due
 report.top.labels=ID,Epic,Description,Tags,Est,Due
@@ -97,74 +107,74 @@ urgency.user.project.chikuri.coefficient=3.2
 rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
 
 # General decoration
-color.label=
-color.label.sort=
-color.alternate=on color235
-color.header=color031
-color.footnote=color031
-color.warning=bold red
-color.error=white on red
-color.debug=color031
-
-# Task state
-color.completed=rgb021
-color.deleted=rgb411
-color.active=color031
-color.recurring=
-color.scheduled=
-color.until=
-color.blocked=gray8
-color.blocking=rgb533
-
-# Project
-color.project.none=
-
-# Priority
-color.uda.priority.H=
-color.uda.priority.L=
-color.uda.priority.M=
-
-# Tags
-color.tag.next=
-color.tag.none=
-color.tagged=
-
-# Due
-color.due.today=rgb542
-color.due=
-color.overdue=red
-
-# Report: burndown
-color.burndown.done=on gray2
-color.burndown.pending=on rgb012
-color.burndown.started=on rgb023
-
-# Report: history
-color.history.add=color0 on rgb015
-color.history.delete=color0 on rgb035
-color.history.done=color0 on rgb025
-
-# Report: summary
-color.summary.background=on gray2
-color.summary.bar=on rgb012
-
-# Command: calendar
-color.calendar.due.today=rgb542 on rgb012
-color.calendar.due=black on rgb542
-color.calendar.holiday=rgb021
-color.calendar.overdue=rgb400
-color.calendar.today=black on rgb012
-color.calendar.weekend=on color235
-color.calendar.weeknumber=color031
-
-# Command: sync
-color.sync.added=gray4
-color.sync.changed=color031
-color.sync.rejected=rgb004
-
-# Command: undo
-color.undo.after=color031
-color.undo.before=color031
+##color.label=
+##color.label.sort=
+##color.alternate=on color235
+##color.header=color031
+##color.footnote=color031
+##color.warning=bold red
+##color.error=white on red
+##color.debug=color031
+##
+### Task state
+##color.completed=rgb021
+##color.deleted=rgb411
+##color.active=color031
+##color.recurring=
+##color.scheduled=
+##color.until=
+##color.blocked=gray8
+##color.blocking=rgb533
+##
+### Project
+##color.project.none=
+##
+### Priority
+##color.uda.priority.H=
+##color.uda.priority.L=
+##color.uda.priority.M=
+##
+### Tags
+##color.tag.next=
+##color.tag.none=
+##color.tagged=
+##
+### Due
+##color.due.today=rgb542
+##color.due=
+##color.overdue=red
+##
+### Report: burndown
+##color.burndown.done=on gray2
+##color.burndown.pending=on rgb012
+##color.burndown.started=on rgb023
+##
+### Report: history
+##color.history.add=color0 on rgb015
+##color.history.delete=color0 on rgb035
+##color.history.done=color0 on rgb025
+##
+### Report: summary
+##color.summary.background=on gray2
+##color.summary.bar=on rgb012
+##
+### Command: calendar
+##color.calendar.due.today=rgb542 on rgb012
+##color.calendar.due=black on rgb542
+##color.calendar.holiday=rgb021
+##color.calendar.overdue=rgb400
+##color.calendar.today=black on rgb012
+##color.calendar.weekend=on color235
+##color.calendar.weeknumber=color031
+##
+### Command: sync
+##color.sync.added=gray4
+##color.sync.changed=color031
+##color.sync.rejected=rgb004
+##
+### Command: undo
+##color.undo.after=color031
+##color.undo.before=color031
 context.builds.read=pro:builds
 context.builds.write=pro:builds
 context.lte.read=pro:lte
