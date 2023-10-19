@@ -52,7 +52,7 @@ urgency.uda.pts.8.coefficient=0.5
 
 # Custom Reports
 report.next.columns=id,description,pts,jira,sprint,due,tags,project
-report.next.labels=ID,Description,pts,Jira,Sprint,Due,Tags,Proj
+report.next.labels=ID,Description,Points,Jira,Sprint,Due,Tags,Proj
 report.next.filter=status:pending limit:page -WAITING 
 report.next.sort=start+,due+,sprint+,pts-,urgency-/
 
