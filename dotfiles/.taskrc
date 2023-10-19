@@ -34,10 +34,6 @@ context.personal.read=pro.not:lte
 context.personal.write=
 
 # User Defined Attributes
-## JIRA Attributes
-uda.epic.type=string
-uda.epic.label=Epic
-
 uda.jira.type=string
 uda.jira.label=Jira
 
@@ -55,10 +51,10 @@ urgency.uda.pts.5.coefficient=1.0
 urgency.uda.pts.8.coefficient=0.5
 
 # Custom Reports
-report.next.columns=id,epic,description,tags,pts,due
-report.next.labels=ID,Epic,Description,Tags,Pts,Due
+report.next.columns=id,description,pts,jira,sprint,due,tags,project
+report.next.labels=ID,Description,pts,Jira,Sprint,Due,Tags,Proj
 report.next.filter=status:pending limit:page -WAITING 
-report.next.sort=due+,start-,points-,urgency-/
+report.next.sort=start+,due+,sprint+,pts-,urgency-/
 
 # Default report
 report.top.columns=id,epic,description,tags,points,due
