@@ -14,6 +14,9 @@
 uda.taskwarrior-tui.task-report.prompt-on-undo=true
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
+uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
+uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
+uda.taskwarrior-tui.shortcuts.7=~/workspace/_utils/,task-due-week
 
 # Files
 data.location=~/workspace/_tasks
@@ -180,4 +183,4 @@ context.builds.read=pro:builds
 context.builds.write=pro:builds
 context.lte.read=pro:lte
 context.lte.write=pro:lte
-context=lte
+context=personal
