@@ -10,3 +10,12 @@
 # Link files
 sudo ln -s /path/to/repo/file ~/.file
 ```
+
+## Crontab
+```bash
+crontab -e
+```
+MAILTO=""
+WORKSPACE="PATH/TO/WORKSPACE"
+SCRIPTS="PATH/TO/SCRIPTS"
+*/2 * * * * cd $WORKSPACE/project && sh $WORKSPACE/_scripts/,auto-save
