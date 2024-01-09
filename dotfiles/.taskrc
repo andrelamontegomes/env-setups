@@ -10,6 +10,11 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
+# Taskwarrior-tui
+uda.taskwarrior-tui.task-report.prompt-on-undo=true
+uda.taskwarrior-tui.task-report.prompt-on-delete=true
+uda.taskwarrior-tui.task-report.prompt-on-done=true
+
 # Files
 data.location=~/workspace/_tasks
 
