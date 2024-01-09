@@ -16,7 +16,9 @@ uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
 uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
-uda.taskwarrior-tui.shortcuts.7=~/workspace/_utils/,task-due-week
+uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-due-week
+uda.taskwarrior-tui.shortcuts.8=task context lte
+uda.taskwarrior-tui.shortcuts.9=task context personal
 
 # Files
 data.location=~/workspace/_tasks
