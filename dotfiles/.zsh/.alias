@@ -82,4 +82,7 @@ if command -v tmux > /dev/null ; then
       send-keys 'wd uy' C-m \; \
       select-pane -t 1 \; \
   "
+  if command -v taskwarrior-tui > /dev/null ; then
+    alias tui="taskwarrior-tui"
+  fi
 fi
