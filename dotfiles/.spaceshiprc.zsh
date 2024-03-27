@@ -1,5 +1,5 @@
 # Display time
-SPACESHIP_TIME_SHOW=true
+SPACESHIP_TIME_SHOW=false
 
 # Do not truncate path in repos
 SPACESHIP_DIR_TRUNC_REPO=true
