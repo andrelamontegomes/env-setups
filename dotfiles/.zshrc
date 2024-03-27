@@ -15,6 +15,9 @@ SPACESHIP_PROMPT_ORDER=(
   node          # Node.js section
   dotnet        # .NET section
   ruby          # Ruby section
+  rust          
+  venv          
+  docker          
   exec_time     # Execution time
   line_sep      # Line break
   battery       # Battery level and status
