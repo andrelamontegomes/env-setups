@@ -1,12 +1,28 @@
+export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-export OBSIDIAN=$WORKSPACE/obsidian
+export OBSIDIAN=$WORKSPACE/_vaults
 export PATH=$PATH:$WORKSPACE/_utils
 export PATH=$PATH:$HOME/.local/bin
-export EDITOR=vim
 export GPG_TTY=$(tty)
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="onedark"
+ZSH_THEME="spaceship"
+SPACESHIP_PROMPT_ORDER=(
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  package       # Package version
+  node          # Node.js section
+  dotnet        # .NET section
+  ruby          # Ruby section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+
+COMPLETION_WAITING_DOTS="true"
 plugins=(
   git 
   rails
@@ -61,8 +77,8 @@ function grep_url {
 # ########################################
 # ### Plugins configuration
 # ########################################
- ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
- unsetopt AUTO_CD 
+ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
+unsetopt AUTO_CD 
  
 if [ -f $HOME/.zsh/.alias ]; then
   source $HOME/.zsh/.alias
@@ -73,11 +89,3 @@ if [ -f $HOME/.zsh/.paths ]; then
 fi
  
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/alg/.gcloud/path.zsh.inc' ]; then . '/home/alg/.gcloud/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/alg/.gcloud/completion.zsh.inc' ]; then . '/home/alg/.gcloud/completion.zsh.inc'; fi
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
