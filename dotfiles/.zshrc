@@ -2,6 +2,7 @@ export EDITOR=vim
 export WORKSPACE=$HOME/workspace
 export OBSIDIAN=$WORKSPACE/_vault
 export PATH=$PATH:$WORKSPACE/_utils
+export PATH=$PATH:$WORKSPACE/taskwarrior-tui/target/release
 export PATH=$PATH:$HOME/.local/bin
 export GPG_TTY=$(tty)
 export ZSH=$HOME/.oh-my-zsh
