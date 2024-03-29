@@ -7,7 +7,6 @@
 ########################################
 alias vault="cd $WORKSPACE/_vault && vim journal.md"
 alias workspace="cd $WORKSPACE"
-alias chat="cd $WORKSPACE/chat"
 alias uri="cd $WORKSPACE/uri"
 alias utils="cd $WORKSPACE/_utils"
 alias dotfiles="cd $WORKSPACE/_dotfiles"
