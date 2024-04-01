@@ -279,6 +279,9 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 "------------------- fzf -------------------" 
 map ; :GFiles<CR> 
 
+"------------------- Rust ------------------" 
+let g:rustfmt_autosave = 1
+
 "------------------- Ledger -------------------" 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger 
 let g:ledger_fillstring = '    -'

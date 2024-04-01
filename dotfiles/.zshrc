@@ -10,11 +10,11 @@ ZSH_THEME="spaceship"
 SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
-  package       # Package version
+  #package       # Package version
   node          # Node.js section
   dotnet        # .NET section
   ruby          # Ruby section
-  rust          
+  #rust          
   venv          
   docker          
   exec_time     # Execution time
