@@ -81,7 +81,7 @@ function grep_url {
 # ### Plugins configuration
 # ########################################
 ZVM_LINE_INIT_MODE=$ZVM_MODE_NORMAL
-unsetopt AUTO_CD 
+setopt AUTO_CD 
  
 if [ -f $HOME/.zsh/.alias ]; then
   source $HOME/.zsh/.alias
@@ -92,9 +92,3 @@ if [ -f $HOME/.zsh/.paths ]; then
 fi
  
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
