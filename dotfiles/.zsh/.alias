@@ -33,6 +33,14 @@ fi
 #fi
 
 ########################################
+### Cargo alias
+########################################
+if command -v cargo > /dev/null ; then
+  alias cr="cargo run"
+  alias cb="cargo build"
+fi
+
+########################################
 ### Bash alias
 ########################################
 alias nv="nvim"
@@ -40,7 +48,7 @@ alias py="python3"
 alias sudo="sudo -v; sudo "
 alias cp="cp -v"
 alias mkdir='mkdir -p'
-alias bat='batcat'
+#alias bat='batcat'
 
 alias more='less'
 export LESSOPEN="| src-hilite-lesspipe.sh %s"

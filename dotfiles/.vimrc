@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mg979/vim-visual-multi'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
 
   """ Advance plugins
   Plug 'itchyny/calendar.vim'
@@ -116,7 +117,6 @@ set autoread
 autocmd FocusGained * checktime
 
 "==================  Mapping Commands ======" 
-
 " Press the space bar to type the : character in command mode.
 nnoremap , :
 
