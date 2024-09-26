@@ -33,6 +33,21 @@ fi
 #fi
 
 ########################################
+### MacOs applications alias
+########################################
+if uname | grep -q 'Darwin' ; then
+  alias play='afplay'
+fi
+
+########################################
+### Node alias
+########################################
+if command -v pnpm > /dev/null ; then
+  alias format="pnpm prettier --write $(git diff --name-only --diff-filter d | grep -e '\.[tj]sx\?$' | xargs)"
+fi
+
+
+########################################
 ### Cargo alias
 ########################################
 if command -v cargo > /dev/null ; then
@@ -55,6 +70,10 @@ export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=" -R "
 alias less='less -m -N -g -i -J --underline-special --SILENT'
 alias l="LC_COLLATE=C ls --color -lao | grep '^d' && LC_COLLATE=C ls -loa --color | grep '^-' && LC_COLLATE=C ls -lao --color | grep '^l'"
+
+if command -v pnpm > /dev/null ; then
+  alias pn=pnpm
+fi
 
 ########################################
 ### Taskwarrior alias

@@ -20,7 +20,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuezk/vim-js'
   Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install --frozen-lockfile --production',
-    \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'markdown', 'yaml', 'html'] }
+    \ 'branch': 'release/0.x'
+    \ }
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
@@ -230,6 +231,12 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "============================================
 "============= PLUGINS ======================
 "============================================
+
+"-------------------------------------------- 
+"------------- Prettier --------------------- 
+"-------------------------------------------- 
+"let g:prettier#autoformat_require_pragma = 0
+"let g:prettier#autoformat_config_present = 1
 
 "-------------------------------------------- 
 "------------- Goyo ------------------------- 
