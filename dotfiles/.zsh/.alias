@@ -84,7 +84,6 @@ if command -v task > /dev/null ; then
   alias twe="task edit"
   alias tt="task top"
   alias tcn="task context none"
-  alias tcl="task context levelten"
   alias tcc="task context cocoon"
   alias tch="task context home"
   alias tcb="task context builds"

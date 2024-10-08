@@ -17,11 +17,7 @@ uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
 uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
 uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-due-week
-uda.taskwarrior-tui.shortcuts.8=task context lte
 uda.taskwarrior-tui.shortcuts.9=task context personal
-
-# Files
-data.location=~/workspace/_tasks
 
 rc.regex=on
 uda.reviewed.type=date
@@ -32,7 +28,6 @@ report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
 editor=vim
 confirmation=off
-news.version=2.6.0
 
 # Search
 search.case.sensitive=no
@@ -40,37 +35,7 @@ search.case.sensitive=no
 # Context
 context.cocoon.read=pro:cocoon
 context.cocoon.write=pro:cocoon
-context.personal.read=pro.not:lte
 context.personal.write=
-
-# User Defined Attributes
-uda.jira.type=string
-uda.jira.label=Jira
-
-uda.sprint.type=numeric
-uda.sprint.label=Sprint
-
-uda.est.type=numeric
-uda.est.label=Est
-uda.est.values=0,1,2,3,5,8,13
-urgency.uda.est.0.coefficient=10.0
-urgency.uda.est.1.coefficient=5.0
-urgency.uda.est.2.coefficient=3.0
-urgency.uda.est.3.coefficient=2.0
-urgency.uda.est.5.coefficient=1.0
-urgency.uda.est.8.coefficient=0.5
-
-# Custom Reports
-report.next.columns=id,description,est,jira,sprint,due,tags,project
-report.next.labels=ID,Description,Est,Jira,Sprint,Due,Tags,Proj
-report.next.filter=status:pending limit:page -WAITING 
-report.next.sort=start+,due+,sprint+,est+,urgency-/
-
-# Default report
-report.top.columns=id,epic,description,tags,points,due
-report.top.labels=ID,Epic,Description,Tags,Est,Due
-report.top.filter=status:pending limit:page -WAITING 
-report.top.sort=due+,start-,points-,urgency-/
 
 # Tags Urgency
 urgency.user.tag.sam.coefficient=8.0
@@ -79,8 +44,7 @@ urgency.user.tag.people.coefficient=5.0
 urgency.user.tag.chores.coefficient=3.0
 
 # Projects Urgency
-# urgency.user.project.C.coefficient=3.0
-urgency.user.project.chikuri.coefficient=3.2
+urgency.user.project.uri.coefficient=3.2
 
 ###############################################################################
 #
@@ -185,4 +149,3 @@ context.builds.read=pro:builds
 context.builds.write=pro:builds
 context.lte.read=pro:lte
 context.lte.write=pro:lte
-context=personal
