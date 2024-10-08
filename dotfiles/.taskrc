@@ -39,9 +39,9 @@ context.personal.write=
 
 # Tags Urgency
 urgency.user.tag.sam.coefficient=8.0
-urgency.user.tag.family.coefficient=6.0
-urgency.user.tag.people.coefficient=5.0
-urgency.user.tag.chores.coefficient=3.0
+urgency.user.tag.fam.coefficient=6.0
+urgency.user.tag.ppl.coefficient=5.0
+urgency.user.tag.home.coefficient=3.0
 
 # Projects Urgency
 urgency.user.project.uri.coefficient=3.2
