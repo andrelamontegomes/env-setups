@@ -20,12 +20,18 @@ uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-due-week
 uda.taskwarrior-tui.shortcuts.9=task context personal
 
 rc.regex=on
+uda.priority.values=H,M,L
+color.alternate=
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
-report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+report.next.filter=(status:pending) page:limit
+#report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+report.next.labels=ID,Deps,P,Project,Recur,S,Until,Description,Tag,Due,Urg
+report.next.columns=id,depends,priority,project,recur,scheduled.countdown,until.remaining,description.truncated_count,tags,due.relative,urgency
+verbose=affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,recur
 editor=vim
 confirmation=off
 
@@ -42,6 +48,7 @@ urgency.user.tag.sam.coefficient=8.0
 urgency.user.tag.fam.coefficient=6.0
 urgency.user.tag.ppl.coefficient=5.0
 urgency.user.tag.home.coefficient=3.0
+urgency.user.tag.ez.coefficient=8.0
 
 # Projects Urgency
 urgency.user.project.uri.coefficient=3.2
@@ -110,9 +117,9 @@ rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,sc
 ##color.tagged=
 ##
 ### Due
-##color.due.today=rgb542
-##color.due=
-##color.overdue=red
+color.due.today=rgb542
+color.due=
+color.overdue=red
 ##
 ### Report: burndown
 ##color.burndown.done=on gray2
