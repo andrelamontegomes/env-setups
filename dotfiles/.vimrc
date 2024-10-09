@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
   """ Themes
   Plug 'joshdick/onedark.vim'
   Plug 'junegunn/seoul256.vim'
+  Plug 'ronny/birds-of-paradise.vim'
 
   """ UI 
   Plug 'junegunn/goyo.vim'
