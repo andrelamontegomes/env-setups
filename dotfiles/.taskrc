@@ -1,37 +1,27 @@
-# [Created by task 2.5.1 8/5/2021 19:55:55]
-# Taskwarrior program configuration file.
-# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
-# 'man task-sync' or 'man taskrc'
-
-# Here is an example of entries that use the default, override and blank values
-#   variable=foo   -- By specifying a value, this overrides the default
-#   variable=      -- By specifying no value, this means no default
-#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
-
 # Taskwarrior-tui
 uda.taskwarrior-tui.task-report.prompt-on-undo=true
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
 uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
 uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
-uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-due-week
-uda.taskwarrior-tui.shortcuts.9=task context personal
+uda.taskwarrior-tui.shortcuts.3=~/workspace/_utils/,task-due-eow # Hide task for 5 hours
+uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-wait # Hide task for 5 hours
+uda.taskwarrior-tui.shortcuts.9=task due.before:eow (status.not:pending or status:pending) page:limit
+uda.taskwarrior-tui.shortcuts.0=task (status.not:pending or status:pending) page:limit
 
 rc.regex=on
 uda.priority.values=H,M,L
 color.alternate=
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
-report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.description=Tasksh review report.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
-report.next.filter=(status:pending) page:limit
-#report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
-report.next.labels=ID,Deps,P,Project,Recur,S,Until,Description,Tag,Due,Urg
-report.next.columns=id,depends,priority,project,recur,scheduled.countdown,until.remaining,description.truncated_count,tags,due.relative,urgency
-verbose=affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,recur
+report.next.sort=status-,urgency-
+report.next.filter=due.before:eod+1d (status:completed or status:pending) page:limit
+# report.next.filter=due.before:eow (status.not:pending or status:pending) page:limit
+report.next.labels=ID,Deps,Project,Recur,S,Until,Description,Tag,Urg
+report.next.columns=id,depends,project,recur,scheduled.countdown,until.remaining,description,tags,urgency
 editor=vim
 confirmation=off
 
@@ -55,7 +45,7 @@ urgency.user.project.uri.coefficient=3.2
 
 ###############################################################################
 #
-# Copyright 2020 - 2020, Dylan Do Amaral.
+# Copyright 2006 - 2021, Tomas Babej, Paul Beckingham, Federico Hernandez.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -75,84 +65,85 @@ urgency.user.project.uri.coefficient=3.2
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# http://www.opensource.org/licenses/mit-license.php
+# https://www.opensource.org/licenses/mit-license.php
 #
 ###############################################################################
 
-# Version 0.0.1
-
-rule.precedence.color=deleted,completed,active,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+rule.precedence.color=deleted,completed,active,uda.priority.,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
 
 # General decoration
-##color.label=
-##color.label.sort=
-##color.alternate=on color235
-##color.header=color031
-##color.footnote=color031
-##color.warning=bold red
-##color.error=white on red
-##color.debug=color031
-##
-### Task state
-##color.completed=rgb021
-##color.deleted=rgb411
-##color.active=color031
-##color.recurring=
-##color.scheduled=
-##color.until=
-##color.blocked=gray8
-##color.blocking=rgb533
-##
-### Project
-##color.project.none=
-##
-### Priority
-##color.uda.priority.H=
-##color.uda.priority.L=
-##color.uda.priority.M=
-##
-### Tags
-##color.tag.next=
-##color.tag.none=
-##color.tagged=
-##
-### Due
-color.due.today=rgb542
-color.due=
-color.overdue=red
-##
-### Report: burndown
-##color.burndown.done=on gray2
-##color.burndown.pending=on rgb012
-##color.burndown.started=on rgb023
-##
-### Report: history
-##color.history.add=color0 on rgb015
-##color.history.delete=color0 on rgb035
-##color.history.done=color0 on rgb025
-##
-### Report: summary
-##color.summary.background=on gray2
-##color.summary.bar=on rgb012
-##
-### Command: calendar
-##color.calendar.due.today=rgb542 on rgb012
-##color.calendar.due=black on rgb542
-##color.calendar.holiday=rgb021
-##color.calendar.overdue=rgb400
-##color.calendar.today=black on rgb012
-##color.calendar.weekend=on color235
-##color.calendar.weeknumber=color031
-##
-### Command: sync
-##color.sync.added=gray4
-##color.sync.changed=color031
-##color.sync.rejected=rgb004
-##
-### Command: undo
-##color.undo.after=color031
-##color.undo.before=color031
+color.label=
+color.label.sort=
+color.alternate=on gray2
+color.header=rgb013
+color.footnote=rgb013
+color.warning=white on rgb103
+color.error=white on red
+color.debug=blue
+
+# Task state
+color.completed=green
+color.deleted=
+color.active=rgb445 on rgb213
+color.recurring=rgb115
+color.scheduled=white on rgb113
+color.until=
+color.blocked=white on rgb101
+color.blocking=white on rgb202
+
+# Project
+color.project.none=
+
+# Priority
+color.uda.priority.H=rgb404
+color.uda.priority.M=blue #rgb304
+color.uda.priority.L= #rgb325
+
+# Tags
+color.tag.next=
+color.tag.none=
+color.tagged=
+
+# Due
+color.due= #rgb015
+color.due.today= #rgb125
+color.overdue=color5
+
+# Report: burndown
+color.burndown.pending=on rgb103
+color.burndown.started=on rgb214
+color.burndown.done=on gray4
+
+# Report: history
+color.history.add=color0 on rgb105
+color.history.done=color0 on rgb205
+color.history.delete=color0 on rgb305
+
+# Report: summary
+color.summary.bar=white on rgb104
+color.summary.background=white on rgb001
+
+# Command: calendar
+color.calendar.due=color0 on rgb325
+color.calendar.due.today=color0 on rgb404
+color.calendar.holiday=color15 on rgb102
+color.calendar.overdue=color0 on color5
+color.calendar.today=color15 on rgb103
+color.calendar.weekend=gray12 on gray3
+color.calendar.weeknumber=rgb104
+
+# Command: sync
+color.sync.added=gray4
+color.sync.changed=rgb214
+color.sync.rejected=rgb103
+
+# Command: undo
+color.undo.before=rgb103
+color.undo.after=rgb305
+#color.undo.before=color031
+#
 context.builds.read=pro:builds
 context.builds.write=pro:builds
 context.lte.read=pro:lte
 context.lte.write=pro:lte
+news.version=2.6.0
