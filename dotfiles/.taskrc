@@ -6,6 +6,7 @@ uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
 uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
 uda.taskwarrior-tui.shortcuts.3=~/workspace/_utils/,task-due-eow # Hide task for 5 hours
 uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-wait # Hide task for 5 hours
+uda.taskwarrior-tui.shortcuts.8=task due: (status.not:pending or status:pending) page:limit
 uda.taskwarrior-tui.shortcuts.9=task due.before:eow (status.not:pending or status:pending) page:limit
 uda.taskwarrior-tui.shortcuts.0=task (status.not:pending or status:pending) page:limit
 
