@@ -1,0 +1,25 @@
+# Rename to ~/.ssh/config
+Host [personal].gitlab
+	User git
+	IdentitiesOnly yes
+	HostName gitlab.com
+	IdentityFile ~/.ssh/[personal]
+
+Host [company].gitlab
+	User git
+	IdentitiesOnly yes
+	HostName gitlab.com
+	IdentityFile ~/.ssh/[company]
+
+Host [personal].github
+	User git
+	IdentitiesOnly yes
+	HostName github.com
+	IdentityFile ~/.ssh/[personal]
+
+Host [server]
+	User [USER]
+	IdentitiesOnly yes
+	HostName [1.1.1.1]
+	Port [2222]
+	IdentityFile ~/.ssh/[personal]
