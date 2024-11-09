@@ -11,6 +11,7 @@ uda.taskwarrior-tui.shortcuts.9=task due.before:eow (status.not:pending or statu
 uda.taskwarrior-tui.shortcuts.0=task (status.not:pending or status:pending) page:limit
 
 rc.regex=on
+dateformat=y-M-D
 uda.priority.values=H,M,L
 color.alternate=
 uda.reviewed.type=date
