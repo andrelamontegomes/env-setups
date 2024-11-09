@@ -24,8 +24,8 @@ report.next.sort=status-,start-,urgency-
 report.next.filter=status:pending page:limit
 #report.next.filter=(due.before:eod+1d and due.after:sow) status:pending page:limit
 # report.next.filter=due.before:eow (status.not:pending or status:pending) page:limit
-report.next.labels=ID,Deps,Project,Recur,S,Until,Description,Tag,Pri,Due,Urg
-report.next.columns=id,depends,project.indented,recur,scheduled.countdown,until.remaining,description,tags,priority,due,urgency
+report.next.labels=ID,Deps,Recur,S,Until,Description,Project,Tag,Pri,Due,Urg
+report.next.columns=id,depends,recur,scheduled.countdown,until.remaining,description,project,tags,priority,due,urgency
 editor=vim
 confirmation=off
 
