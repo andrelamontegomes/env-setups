@@ -44,7 +44,7 @@ urgency.user.tag.home.coefficient=3.0
 urgency.user.tag.ez.coefficient=8.0
 
 # Projects Urgency
-urgency.user.project.uri.coefficient=3.2
+#urgency.user.project.uri.coefficient=3.2
 
 ###############################################################################
 #
