@@ -90,6 +90,6 @@ fi
 if [ -f $HOME/.zsh/.paths ]; then
   source $HOME/.zsh/.paths
 fi
- 
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(zoxide init zsh)"
