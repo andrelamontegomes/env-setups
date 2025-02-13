@@ -1,6 +1,8 @@
 tap "homebrew/bundle"
 brew "task"
+brew "taskwarrior-tui"
 brew "tmux"
 brew "tree"
+brew "vit"
 brew "zoxide"
 brew "zsh"
