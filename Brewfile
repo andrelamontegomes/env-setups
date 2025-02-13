@@ -1,5 +1,6 @@
 tap "homebrew/bundle"
 brew "task"
+brew "tmux"
 brew "tree"
 brew "zoxide"
 brew "zsh"
