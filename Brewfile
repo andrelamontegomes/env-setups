@@ -1,0 +1,5 @@
+tap "homebrew/bundle"
+brew "task"
+brew "tree"
+brew "zoxide"
+brew "zsh"
