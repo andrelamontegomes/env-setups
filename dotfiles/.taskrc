@@ -151,3 +151,4 @@ context.builds.write=pro:builds
 context.lte.read=pro:lte
 context.lte.write=pro:lte
 news.version=2.6.0
+recurrence=on
