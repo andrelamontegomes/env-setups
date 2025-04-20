@@ -292,6 +292,7 @@ let g:rustfmt_autosave = 1
 
 "------------------- Ale ------------------" 
 let g:ale_fix_on_save = 1
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 "------------------- Ledger -------------------" 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger 

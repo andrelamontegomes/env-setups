@@ -1,5 +1,8 @@
 # Andre Gomes DotFiles
 
+## Description
+Personal development environment configurations and dotfiles
+
 ## The dotfiles here
 1. Zshrc
 2. Vimrc

@@ -1,3 +1,8 @@
+# Sync
+sync.server.origin=https://champion.taila9eecb.ts.net
+sync.server.client_id=2879a5a1-7ce8-4351-838c-d8b62ea20fe3
+sync.encryption_secret=F85MPBxYAQCPWfU12e+KENflV1xhig2fFpjKwqfMPWQ=
+
 # Taskwarrior-tui
 uda.taskwarrior-tui.task-report.prompt-on-undo=true
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
