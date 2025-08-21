@@ -1,0 +1,1 @@
+*/15 * * * * cd /path/to/project && git fetch origin >/dev/null 2>&1

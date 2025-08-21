@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Updating local tracking branches..."
+
+# Fetch all remotes
+git fetch origin
+
+# Update main branch if it can be fast-forwarded
+LOCAL_MAIN=$(git rev-parse main 2>/dev/null || echo "")
+REMOTE_MAIN=$(git rev-parse origin/main 2>/dev/null || echo "")
+
+if [ -n "$LOCAL_MAIN" ] && [ -n "$REMOTE_MAIN" ]; then
+    BASE=$(git merge-base main origin/main 2>/dev/null || echo "")
+    
+    if [ "$LOCAL_MAIN" = "$BASE" ] && [ "$LOCAL_MAIN" != "$REMOTE_MAIN" ]; then
+        echo "🔄 Fast-forwarding main branch..."
+        git branch -f main origin/main
+        echo "✅ Main updated to $(git rev-parse --short origin/main)"
+    fi
+fi

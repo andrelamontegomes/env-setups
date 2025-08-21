@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# $1 = previous HEAD, $2 = new HEAD, $3 = branch switch flag
+if [ "$3" = "1" ]; then
+    echo "Branch switched - updating remote tracking info..."
+    
+    # Fetch in background (non-blocking)
+    (git fetch origin &) 2>/dev/null
+    
+    # Only update main if we can fast-forward
+    current_branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "detached")
+    
+    if [ "$current_branch" != "main" ]; then
+        LOCAL_MAIN=$(git rev-parse main 2>/dev/null || echo "")
+        REMOTE_MAIN=$(git rev-parse origin/main 2>/dev/null || echo "")
+        
+        if [ -n "$LOCAL_MAIN" ] && [ -n "$REMOTE_MAIN" ]; then
+            BASE=$(git merge-base main origin/main 2>/dev/null || echo "")
+            
+            if [ "$LOCAL_MAIN" = "$BASE" ] && [ "$LOCAL_MAIN" != "$REMOTE_MAIN" ]; then
+                git branch -f main origin/main
+                echo "✅ Updated main to latest"
+            fi
+        fi
+    fi
+fi

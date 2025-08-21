@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Only run on the main branch
+current_branch=$(git symbolic-ref --short HEAD)
+if [ "$current_branch" != "main" ]; then
+    exit 0
+fi
+
+echo "Main branch updated via merge - fetching latest changes..."
+
+# Fetch latest changes
+git fetch origin
+
+# Check if we're behind origin/main
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse origin/main)
+BASE=$(git merge-base HEAD origin/main)
+
+if [ "$LOCAL" = "$REMOTE" ]; then
+    echo "✅ Already up to date"
+elif [ "$LOCAL" = "$BASE" ]; then
+    echo "🔄 Fast-forward pull available - updating..."
+    git pull origin main
+else
+    echo "⚠️  Diverged from origin/main - manual merge required"
+fi
