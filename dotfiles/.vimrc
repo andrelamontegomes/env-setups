@@ -12,20 +12,11 @@ call plug#begin('~/.vim/plugged')
 
   """ UI 
   Plug 'junegunn/goyo.vim'
-  Plug 'itchyny/lightline.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'sheerun/vim-polyglot'
   
   """ Syntax 
   Plug 'dense-analysis/ale'
-  Plug 'yuezk/vim-js'
-  Plug 'prettier/vim-prettier', {
-    \ 'do': 'yarn install --frozen-lockfile --production',
-    \ 'branch': 'release/0.x'
-    \ }
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
@@ -39,7 +30,6 @@ call plug#begin('~/.vim/plugged')
 
   """ Advance plugins
   Plug 'itchyny/calendar.vim'
-  Plug 'blindFS/vim-taskwarrior'
   Plug 'ledger/vim-ledger'
   Plug 'dhruvasagar/vim-table-mode'
 
@@ -66,8 +56,13 @@ set smarttab " Insert mode press tab to indent
    
 "=================== Performance ===================" 
 set complete-=i " Limit the files searched for auto-completes
-set re=2
-" set lazyredraw " Do not update screen during macro and script execution
+set re=1
+set regexpengine=1
+set synmaxcol=200
+syntax sync minlines=256
+syntax sync maxlines=256
+set ttyfast
+set lazyredraw " Do not update screen during macro and script execution
 
 "=================== Text Rendering ===================" 
 set display+=lastline " Try to show a paragraph's last line
@@ -97,7 +92,7 @@ set foldcolumn=2
 
 set cursorline
 set cursorlineopt=both
-set cursorcolumn
+set nocursorcolumn
     
 "=================== Undo Backup =========================" 
 set undodir=~/.vim/backup
@@ -190,11 +185,6 @@ function! ToggleLineNumber()
   set nonumber!
 endfunction
 
-function! ToggleLineColumn()
-  set nocursorcolumn!
-  set nocursorline!
-endfunction
-
 nnoremap <leader>v <c-w>v
 nnoremap <leader>s <c-w>s
 
@@ -234,10 +224,36 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "============================================
 
 "-------------------------------------------- 
-"------------- Prettier --------------------- 
+"------------- Ale --------------------- 
 "-------------------------------------------- 
-"let g:prettier#autoformat_require_pragma = 0
-"let g:prettier#autoformat_config_present = 1
+let g:ale_linters = {
+\ 'javascript': ['eslint'],
+\ 'javascriptreact': ['eslint'],
+\ 'typescript': ['eslint'],
+\ 'typescriptreact': ['eslint'],
+\ 'php': ['php', 'phpcs'],
+\}
+
+let g:ale_fixers = {
+\ 'javascript': ['prettier'],
+\ 'javascriptreact': ['prettier'],
+\ 'typescript': ['prettier'],
+\ 'typescriptreact': ['prettier'],
+\ 'css': ['prettier'],
+\ 'json': ['prettier'],
+\ 'php': ['pint'],
+\}
+
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_php_pint_executable = './vendor/bin/pint'
+" let g:prettier#autoformat_config_files = ['.prettierrc.json']
+" let g:ng at every change you may want to disable quickfix
+" let g:prettier#quickfix_enabled = 0
+" autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html 
 
 "-------------------------------------------- 
 "------------- Goyo ------------------------- 
@@ -254,7 +270,6 @@ function! s:goyo_enter()
   set number
   set relativenumber
   set nocursorline
-  set nocursorcolumn
 
   colorscheme seoul256
 
@@ -276,7 +291,6 @@ function! s:goyo_leave()
   set number
   set relativenumber
   set cursorline
-  set cursorcolumn
 
   colorscheme onedark
 endfunction
@@ -289,10 +303,6 @@ map ; :GFiles<CR>
 
 "------------------- Rust ------------------" 
 let g:rustfmt_autosave = 1
-
-"------------------- Ale ------------------" 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 "------------------- Ledger -------------------" 
 au BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger 
