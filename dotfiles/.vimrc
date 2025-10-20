@@ -231,7 +231,6 @@ let g:ale_linters = {
 \ 'javascriptreact': ['eslint'],
 \ 'typescript': ['eslint'],
 \ 'typescriptreact': ['eslint'],
-\ 'php': ['php', 'phpcs'],
 \}
 
 let g:ale_fixers = {
@@ -241,15 +240,17 @@ let g:ale_fixers = {
 \ 'typescriptreact': ['prettier'],
 \ 'css': ['prettier'],
 \ 'json': ['prettier'],
-\ 'php': ['pint'],
 \}
+" \ 'php': ['pint'],
 
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
-let g:ale_php_pint_executable = './vendor/bin/pint'
+" let g:ale_php_pint_executable = './vendor/bin/pint'
+" let g:ale_php_pint_use_global = 0
+" let g:ale_php_pint_options = '--config=pint.json'
 " let g:prettier#autoformat_config_files = ['.prettierrc.json']
 " let g:ng at every change you may want to disable quickfix
 " let g:prettier#quickfix_enabled = 0
@@ -328,7 +329,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 let g:NERDTreeWinSize = 30
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "------------------- netrw -------------------" 
