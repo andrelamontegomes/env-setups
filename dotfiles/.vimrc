@@ -58,8 +58,8 @@ set smarttab " Insert mode press tab to indent
    
 "=================== Performance ===================" 
 set complete-=i " Limit the files searched for auto-completes
-set re=1
-set regexpengine=1
+set re=2
+" set regexpengine=1
 set synmaxcol=200
 syntax sync minlines=256
 syntax sync maxlines=256
