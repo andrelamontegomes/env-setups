@@ -65,6 +65,7 @@ syntax sync minlines=256
 syntax sync maxlines=256
 set ttyfast
 set lazyredraw " Do not update screen during macro and script execution
+set updatetime=300
 
 "=================== Text Rendering ===================" 
 set display+=lastline " Try to show a paragraph's last line
@@ -95,6 +96,11 @@ set foldcolumn=2
 set cursorline
 set cursorlineopt=both
 set nocursorcolumn
+
+set nobackup
+set nowritebackup
+
+
     
 "=================== Undo Backup =========================" 
 set undodir=~/.vim/backup
@@ -233,7 +239,20 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+autocmd CursorHold * silent call CocActionAsync('highlight')
 "-------------------------------------------- 
 "------------- Ale --------------------- 
 "-------------------------------------------- 
