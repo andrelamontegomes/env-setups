@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'wuelnerdotexe/vim-astro'
   Plug 'leafgarland/typescript-vim'
   Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
@@ -223,6 +224,11 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "============================================
 "============= PLUGINS ======================
 "============================================
+
+"-------------------------------------------- 
+"------------- COC --------------------- 
+"-------------------------------------------- 
+let g:coc_global_extensions = ['coc-tsserver']
 
 "-------------------------------------------- 
 "------------- Ale --------------------- 
