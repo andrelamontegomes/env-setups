@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "coc-tsserver": ">=2.3.1",
+    "coc-json": ">=1.9.3",
+    "coc-css": ">=2.1.0",
+    "coc-html": ">=1.8.0",
+    "coc-phpls": ">=2.2.4",
+    "coc-rust-analyzer": ">=0.85.0",
+    "coc-jedi": ">=0.36.1",
+    "coc-solargraph": ">=1.2.4",
+    "coc-sql": ">=0.14.0",
+    "coc-docker": ">=1.0.2",
+    "coc-sh": ">=1.2.4",
+    "coc-yaml": ">=1.9.1",
+    "coc-tailwindcss": ">=0.7.0"
+  }
+}
