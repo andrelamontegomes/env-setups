@@ -212,8 +212,8 @@ nnoremap <leader>ga :Git add .<CR>
 nnoremap <leader>gs :Git status<CR> 
 nnoremap <leader>gc :Git commit<CR> 
 nnoremap <leader>gC :Git commit -m 
-nnoremap <leader>gd :Git diff .<CR> 
-nnoremap <leader>gD :Git diff<CR> 
+" nnoremap <leader>gd :Git diff .<CR> 
+" nnoremap <leader>gD :Git diff<CR> 
 
 nnoremap <leader>1 :Goyo<CR> 
 nnoremap <leader>2 :TableModeToggle<CR> 
@@ -229,6 +229,10 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "------------- COC --------------------- 
 "-------------------------------------------- 
 let g:coc_global_extensions = ['coc-tsserver']
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "-------------------------------------------- 
 "------------- Ale --------------------- 
