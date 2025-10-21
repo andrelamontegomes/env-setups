@@ -17,6 +17,10 @@ call plug#begin('~/.vim/plugged')
   
   """ Syntax 
   Plug 'dense-analysis/ale'
+  Plug 'pangloss/vim-javascript'
+  Plug 'wuelnerdotexe/vim-astro'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'maxmellon/vim-jsx-pretty'
 
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
@@ -28,9 +32,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
 
-  """ Advance plugins
-  Plug 'itchyny/calendar.vim'
-  Plug 'ledger/vim-ledger'
   Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
@@ -255,6 +256,11 @@ let g:ale_sign_column_always = 1
 " let g:ng at every change you may want to disable quickfix
 " let g:prettier#quickfix_enabled = 0
 " autocmd TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html 
+"
+"-------------------------------------------- 
+"------------- Astro --------------------- 
+"-------------------------------------------- 
+let g:astro_typescript = 'enable'
 
 "-------------------------------------------- 
 "------------- Goyo ------------------------- 
@@ -329,7 +335,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 let g:NERDTreeWinSize = 30
 autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "------------------- netrw -------------------" 
