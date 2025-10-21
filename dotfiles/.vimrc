@@ -154,30 +154,6 @@ nnoremap <S-k> :m-2<CR>
 " Yank to system clipboard
 set clipboard=unnamed
 
-inoremap <      <><Left>
-inoremap <<CR>  <<CR><<Esc>O
-inoremap <<     <
-inoremap <>     <>
-
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
-
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
-
-inoremap "      ""<Left>
-inoremap "<CR>  "<CR>"<Esc>O
-inoremap ""     "
-
 "------------------  Moonlander Meh ------" 
 map <A><S><Cr>b :b#
 
