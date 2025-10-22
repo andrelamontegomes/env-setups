@@ -210,7 +210,7 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "-------------------------------------------- 
 "------------- COC --------------------- 
 "-------------------------------------------- 
-let g:coc_global_extensions = ['coc-tsserver']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-tailwindcss', 'coc-html', 'coc-sql','coc-sh','coc-rust-analyzer','coc-phpls','coc-docker','coc-jedi','coc-css']
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
