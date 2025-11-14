@@ -3,17 +3,6 @@
 ########################################
 
 ########################################
-### Navigation
-########################################
-alias vault="cd $WORKSPACE/_vault && vim journal.md"
-alias workspace="cd $WORKSPACE"
-alias uri="cd $WORKSPACE/uri"
-alias utils="cd $WORKSPACE/_utils"
-alias dotfiles="cd $WORKSPACE/_dotfiles"
-alias forks="cd $WORKSPACE/_forks"
-alias blog="cd $WORKSPACE/_blog"
-
-########################################
 ### Linux Applications Configuration
 ########################################
 if uname | grep -q 'Linux' ; then
