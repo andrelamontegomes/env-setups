@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(sail artisan make:migration:*)",
+      "Bash(sail artisan make:command:*)",
+      "Bash(sail artisan:*)",
+      "Bash(cargo check)",
+      "Bash(cargo clippy:*)",
+      "Bash(cargo test:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh api graphql:*)",
+      "mcp__linear-server__list_issue_labels",
+      "mcp__linear-server__list_issues",
+      "mcp__linear-server__list_my_issues",
+      "mcp__linear-server__get_issue",
+      "mcp__linear-server__list_comments",
+      "mcp__linear-server__get_team",
+      "Bash(rg:*)",
+      "Bash(gh pr list:*)"
+    ],
+    "deny": [
+      "Bash(npm run lint)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "linear-server",
+    "filesystem"
+  ],
+  "alwaysThinkingEnabled": false,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754086144584
+  }
+}
