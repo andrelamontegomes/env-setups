@@ -92,6 +92,10 @@ if command -v tmux > /dev/null ; then
   alias tksa="tmux kill-server"
   alias tkst="tmux kill-session -t"
 
+  if command -v gum > /dev/null ; then
+    alias ta='tmux attach -t $(tmux list-sessions -F \#S | gum filter --placeholder "Pick session...")'
+  fi
+
   alias session-workspace="
     tmux new-session -t template \; \
       split-window -h -p 40 \; \
@@ -112,10 +116,4 @@ if command -v tmux > /dev/null ; then
   if command -v taskwarrior-tui > /dev/null ; then
     alias tui="taskwarrior-tui"
   fi
-fi
-
-########################################
-### Gum alias
-########################################
-if command -v gum > /dev/null ; then
 fi
