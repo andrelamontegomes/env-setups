@@ -5,13 +5,25 @@
 	excludesfile = ~/.gitignore_global
 [alias]
   status = status --short -uno
+  pr = "!f() { gh pr list | cut -f1,2 | gum choose | cut -f1 | xargs gh pr checkout ; }; f"
   branch = branch | cat
+	cob = "checkout -b"
   nvm = reset --hard
   mnf = "!f() { git merge $@ --no-ff | egrep --color 'CONFLICT .*|$' ; }; f"
   conflicts = "!f() { git ls-files -u | cut -f 2 | sort -u ; }; f"
 	long = log --graph --decorate --pretty=oneline --abbrev-commit
 	gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 	full = !"for b in $(git for-each-ref refs/heads --format='%(refname)') ; do git checkout ${b#refs/heads/} ; git pull --ff-only ; done"
+	amend="commit --amend"
+	br=branch
+	cm=commit
+	co=checkout
+	re=restore
+	sw=switch
+	dif=diff
+	pus=push
+	pu=push
+	pick=cherry-pick
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
