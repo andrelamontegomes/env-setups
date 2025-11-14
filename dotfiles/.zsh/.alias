@@ -40,8 +40,8 @@ fi
 ### Cargo alias
 ########################################
 if command -v cargo > /dev/null ; then
-  alias cr="cargo run"
-  alias cb="cargo build"
+  alias cpr="cargo run"
+  alias cpb="cargo build"
 fi
 
 ########################################
@@ -90,10 +90,10 @@ if command -v tmux > /dev/null ; then
   alias ta="tmux attach-session -t"
   alias tr="tmux rename-session -t"
   alias tksa="tmux kill-server"
-  alias tkst="tmux kill-session -t"
 
   if command -v gum > /dev/null ; then
     alias ta='tmux attach -t $(tmux list-sessions -F \#S | gum filter --placeholder "Pick session...")'
+    alias tkst='tmux kill-session -t $(tmux list-sessions -F \#S | gum filter --placeholder "Kill session...")'
   fi
 
   alias session-workspace="
