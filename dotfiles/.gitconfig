@@ -25,6 +25,7 @@
 	pus=push
 	pu=push
 	pick=cherry-pick
+	auto = "!f() { git add -A && git commit -m \"chore(autosave): $(date '+%Y-%m-%d %H:%M:%S')\" && git pull --rebase && git push; }; f"
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
