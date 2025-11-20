@@ -5,7 +5,7 @@
 	excludesfile = ~/.gitignore_global
 [alias]
   status = status --short -uno
-  pr = "!f() { gh pr list --json number,title,author,isDraft | jq -r 'sort_by(.isDraft, .author.login) | .[] | \"\\(.number)\\t@\\(.author.login[0:4])\\t\\(if .isDraft then \"[DRAFT] \" else \"\" end)\\(.title)\"' | gum choose | cut -f1 | xargs gh pr checkout ; }; f"
+  pr = "!f() { gh pr list --json number,title,author,isDraft | jq -r '(map(select(.isDraft | not)) | sort_by(.author.login) | .[] | \"\\(.number)\\t@\\(.author.login[0:4])\\t\\(.title)\"), (if any(.isDraft) then \"---\\t\\t\" else empty end), (map(select(.isDraft)) | sort_by(.author.login) | .[] | \"\\(.number)\\t@\\(.author.login[0:4])\\t[DRAFT] \\(.title)\")' | gum choose | cut -f1 | xargs gh pr checkout ; }; f"
   branch = branch | cat
 	cob = "checkout -b"
   nvm = reset --hard
