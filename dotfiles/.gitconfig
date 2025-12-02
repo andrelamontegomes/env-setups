@@ -26,6 +26,7 @@
 	pu=push
 	pick=cherry-pick
 	auto = "!f() { git add -A && git commit -m \"chore(autosave): $(date '+%Y-%m-%d %H:%M:%S')\" && git pull --rebase && git push; }; f"
+	sync = "!f() { current=$(git branch --show-current); git fetch origin main:main && if git merge-base --is-ancestor main HEAD; then echo 'Already up to date with main'; else if git merge --no-commit --no-ff main 2>&1 | grep -q 'Automatic merge failed'; then git merge --abort; echo 'Sync aborted: conflicts detected. Please merge manually.'; return 1; else git merge --ff main || git merge --no-ff main -m \"Merge main into $current\"; fi; fi; }; f"
 [user]
 	name = Andre L Gomes
 	email = andre@andrelgomes.com
