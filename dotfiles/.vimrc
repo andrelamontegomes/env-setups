@@ -19,7 +19,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'pangloss/vim-javascript'
   Plug 'wuelnerdotexe/vim-astro'
-  Plug 'leafgarland/typescript-vim'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
