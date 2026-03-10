@@ -1,16 +1,14 @@
-# Sync
-sync.server.origin=https://champion.taila9eecb.ts.net
-sync.server.client_id=2879a5a1-7ce8-4351-838c-d8b62ea20fe3
-sync.encryption_secret=F85MPBxYAQCPWfU12e+KENflV1xhig2fFpjKwqfMPWQ=
-
 # Taskwarrior-tui
 uda.taskwarrior-tui.task-report.prompt-on-undo=true
 uda.taskwarrior-tui.task-report.prompt-on-delete=true
 uda.taskwarrior-tui.task-report.prompt-on-done=true
+uda.taskwarrior-tui.task-report.show-info=false
+uda.taskwarrior-tui.task-report.jump-on-task-add=false
 uda.taskwarrior-tui.shortcuts.1=~/workspace/_utils/,task-due-today
 uda.taskwarrior-tui.shortcuts.2=~/workspace/_utils/,task-due-tom
-uda.taskwarrior-tui.shortcuts.3=~/workspace/_utils/,task-due-eow # Hide task for 5 hours
+uda.taskwarrior-tui.shortcuts.3=~/workspace/_utils/,task-due-eow 
 uda.taskwarrior-tui.shortcuts.5=~/workspace/_utils/,task-wait # Hide task for 5 hours
+uda.taskwarrior-tui.shortcuts.7=~/workspace/_utils/,task-wait-week # Hide task for 1 week 
 uda.taskwarrior-tui.shortcuts.8=task due: (status.not:pending or status:pending) page:limit
 uda.taskwarrior-tui.shortcuts.9=task due.before:eow (status.not:pending or status:pending) page:limit
 uda.taskwarrior-tui.shortcuts.0=task (status.not:pending or status:pending) page:limit
@@ -26,9 +24,9 @@ report._reviewed.description=Tasksh review report.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report.next.sort=status-,start-,urgency-
-# report.next.filter=status:pending page:limit
-#report.next.filter=(due.before:eod+1d and due.after:sow) status:pending page:limit
-report.next.filter=(due.before:eod+1d) status:pending page:limit
+report.next.filter=status:pending page:limit
+# report.next.filter=(due.before:eod+1d and due.after:sow) status:pending page:limit
+# report.next.filter=due.before:eod+1h status:pending
 report.next.labels=ID,Deps,Description,Project,Tag,Pri,Due
 report.next.columns=id,depends,description,project,tags,priority,due
 editor=vim
@@ -37,17 +35,12 @@ confirmation=off
 # Search
 search.case.sensitive=no
 
-# Context
-context.cocoon.read=pro:cocoon
-context.cocoon.write=pro:cocoon
-context.personal.write=
-
 # Tags Urgency
+urgency.user.tag.ez.coefficient=8.0
 urgency.user.tag.sam.coefficient=8.0
 urgency.user.tag.fam.coefficient=6.0
 urgency.user.tag.ppl.coefficient=5.0
-urgency.user.tag.home.coefficient=3.0
-urgency.user.tag.ez.coefficient=8.0
+# urgency.user.tag.home.coefficient=3.0
 
 # Projects Urgency
 #urgency.user.project.uri.coefficient=3.2
@@ -78,7 +71,7 @@ urgency.user.tag.ez.coefficient=8.0
 #
 ###############################################################################
 
-rule.precedence.color=deleted,completed,active,uda.priority.,keyword.,tag.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,uda.
+rule.precedence.color=deleted,completed,active,uda.priority.,keyword.,due.today,due,tag.,project.,overdue,scheduled,blocked,blocking,recurring,tagged,uda.
 
 # General decoration
 color.label=
@@ -151,9 +144,31 @@ color.undo.before=rgb103
 color.undo.after=rgb305
 #color.undo.before=color031
 #
-context.builds.read=pro:builds
-context.builds.write=pro:builds
-context.lte.read=pro:lte
-context.lte.write=pro:lte
-news.version=2.6.0
-recurrence=on
+# Context
+context.blender.read=pro:study +blender
+context.blender.write=pro:study +blender
+
+context.uri.read=pro:uri
+context.uri.write=pro:uri
+
+context.ccn.read=pro:ccn
+context.ccn.write=pro:ccn
+
+context.home.read=pro:chore or pro:ppl
+context.home.write=
+
+context.ppl.read=pro:ppl
+context.ppl.write=pro:ppl
+
+context.build.read=pro:build
+context.build.write=pro:build
+
+context.study.write=
+context.study.read=
+
+context.blog.write=pro:blog
+context.blog.read=pro:blog
+
+#context.lte.read=pro:lte
+#context.lte.write=pro:lte
+news.version=3.4.2
