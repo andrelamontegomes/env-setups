@@ -10,12 +10,14 @@ Complete a task spec file from the `tasks/` directory.
    - Read any existing files that will be modified.
    - Implement the component, wiring, or verification described in the checkbox.
    - Write tests as specified inline with each task item.
+   - Run `make tidy` to confirm tests pass.
    - Run `make test` to confirm tests pass.
    - Run `make lint` to confirm code is clean.
    - Mark the checkbox `- [x]` in the task spec file immediately after that item passes.
+   - **Version bump item**: when you reach the **Version bump** checkbox, read the current `VERSION ?=` line in `Makefile` *now* (not earlier — the spec intentionally does not pre-compute it) and apply the bump type recorded in the spec (patch / minor / major). Update the `Makefile` line with the new version. If a `CHANGELOG.md` entry is also required, use this same new version as its header.
 
 4. **Final verification**: After all items are checked:
-   - Run `make test` and `make lint` one final time to confirm everything passes together.
+   - Run `make tidy`, `make test` and `make lint` one final time to confirm everything passes together.
    - Run the end-to-end verification step (the last checkbox in the spec) if present.
 
 5. **Move to done**: Move the completed task spec file to `tasks/done/`:
