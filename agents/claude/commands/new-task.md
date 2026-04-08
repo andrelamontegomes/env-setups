@@ -18,16 +18,14 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - **Existing test impact**: Check if existing tests need updating due to changed signatures, new fields, or modified behavior.
    - Inline every test requirement with its corresponding component in the spec (the `Test:` convention used in other task files).
 
-4. **Determine version bump**: Read the current `VERSION` in `Makefile` (line 1) and determine the appropriate semver bump:
-   - **patch** (0.1.0 → 0.1.1) — bug fixes, minor internal changes, no new user-facing behavior
-   - **minor** (0.1.0 → 0.2.0) — new features, new commands, new user-facing behavior (backwards compatible)
-   - **major** (0.1.0 → 1.0.0) — breaking changes to CLI interface, config format, or database schema that require user action
-   - Update the `VERSION ?=` line in `Makefile` with the bumped version.
-   - Include the new version in the `CHANGELOG.md` entry (step 5).
+4. **Determine version bump type**: Decide the appropriate semver bump *type* for this task. Do **not** read the current `VERSION` in `Makefile` and do **not** compute or write the exact new version — the actual bump happens when the task is completed, by which time the current version may have moved. Record only the type:
+   - **patch** — bug fixes, minor internal changes, no new user-facing behavior
+   - **minor** — new features, new commands, new user-facing behavior (backwards compatible)
+   - **major** — breaking changes to CLI interface, config format, or database schema that require user action
 
 5. **Check documentation impact**: Determine if documentation needs updating:
    - Does `spec.md` need new sections or updates to reflect new architecture, types, or commands?
-   - Does `CHANGELOG.md` need a new entry? (Use Keep a Changelog format, under the new version from step 4)
+   - Does `CHANGELOG.md` need a new entry? (Use Keep a Changelog format — the version header will be filled in at completion time, so the spec should just say "add entry under the new version")
    - Does `CLAUDE.md` need updates to reflect new packages, key files, or conventions?
    - Does `--help` text on any CLI command need updating?
    - Add a documentation checklist item to the spec if any docs need changes.
@@ -96,11 +94,11 @@ The argument is a short description of the feature, refactor, or fix. Example: `
 
    - [ ] **Version bump** — bump `VERSION` in `Makefile` (Code)
      - Bump type: <patch | minor | major>
-     - `VERSION ?= <old>` → `VERSION ?= <new>`
+     - At completion time, read the current `VERSION ?=` line and apply the bump above. Do not pre-compute the new version here — it may be stale by the time this task runs.
 
    - [ ] **Documentation** (if needed)
      - Update `spec.md`: <what to add/change>
-     - Update `CHANGELOG.md`: add `[<new version>]` entry
+     - Update `CHANGELOG.md`: add a new entry under the version produced by the bump above
 
    - [ ] Verify: <end-to-end manual verification steps>
    ```
