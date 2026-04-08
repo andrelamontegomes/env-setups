@@ -32,7 +32,26 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - Does `--help` text on any CLI command need updating?
    - Add a documentation checklist item to the spec if any docs need changes.
 
-6. **Write the task spec**: Create `tasks/<slug>.md` following this structure. Begin the file with a YAML frontmatter block containing `title`, `description`, `created_at`, and `updated_at` (both dates set to today in `YYYY-MM-DD` format on creation). Use `date +%Y-%m-%d` if you need to confirm today's date. Do not repeat the `# <Title> — <Short Description>` heading inside the body — the frontmatter is the source of truth for both.
+6. **Identify whole-milestone context to pre-read**: Before drafting components, decide which files a future implementer must read once to hold the whole task in their head. These go into a top-level **Read before starting (whole-milestone context)** bullet list, *not* repeated per component. Aim for 4–8 entries covering:
+   - Source files containing types/functions the task will extend, replace, or call
+   - Adjacent files that establish the *pattern* to mirror (style, test layout, registry conventions, error handling)
+   - `spec.md` sections that govern the relevant rules (formulas, accessibility constraints, domain idioms)
+   - `CLAUDE.md` if build/lint/test workflow is non-obvious
+   - Sibling task files this milestone coordinates with (use a separate **Coordinate with:** line at the very top for hard dependencies)
+   Each entry must include the file path *and* a one-line reason it matters. Do not list a file without saying why.
+
+7. **Identify per-component tools, references, and actions**: For each component in the spec, list the concrete actions and resources the implementing agent will need. Inline these directly under the component bullet (not at the bottom of the file). Use these sub-bullet conventions:
+   - **Read:** `<path>` (lines X-Y) — `<why this exact region matters>`. Always cite line ranges when pointing at a small region; this is more useful than "see the file".
+   - **Update callers:** `<path>` line N, `<path>` line N — list every call site that breaks when a signature changes, so the agent does not have to grep for them.
+   - **Update tests:** `<test file>` — name the test files whose fixtures or signatures must change.
+   - **Docs to fetch:** `<library/API name>` — `<URL>`. Use this for third-party libraries (Bubble Tea, Harmonica, Bubbles, Huh, Lipgloss, beep, modernc.org/sqlite, Cobra) when the component touches an unfamiliar API. Prefer canonical sources (`pkg.go.dev`, the project's GitHub README) and include the specific symbol/function the agent should look up.
+   - **Stdlib:** `<package.Symbol>` — note when a stdlib package is the right tool (e.g. `math.Pow`, `time.Tick`, `context.WithCancel`) so the agent does not reach for a dependency.
+   - **New dependency:** `<module path>` — flag any `go get` the agent will need to run, including whether it is already an indirect dep that just needs promoting in `go.mod`.
+   - **Migration:** if the component requires a DB migration, name the next number (e.g. `004`) and the file (`internal/db/migrations.go`).
+   - **Tools the agent should use:** call out non-default tools when relevant — e.g. `WebFetch` to pull a doc URL listed above, `Grep` for a specific symbol before editing, `LSP` for cross-package refactors, or running `make test` / `make lint` after changes.
+   Do not invent references. If you do not know the correct URL or line number, leave the bullet off rather than guess — the implementing agent can search.
+
+8. **Write the task spec**: Create `tasks/<slug>.md` following this structure. Begin the file with a YAML frontmatter block containing `title`, `description`, `created_at`, and `updated_at` (both dates set to today in `YYYY-MM-DD` format on creation). Use `date +%Y-%m-%d` if you need to confirm today's date. Do not repeat the `# <Title> — <Short Description>` heading inside the body — the frontmatter is the source of truth for both.
 
    ```markdown
    ---
@@ -43,10 +62,17 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    ---
 
    **Depends on:** [other-task.md](other-task.md) (if applicable, omit section if none)
+   **Coordinate with:** [sibling-task.md](sibling-task.md) — <one line on the overlap> (if applicable, omit if none)
 
    ### Container: <one-line C4 container description>
 
    <1-3 paragraph explanation of what this task does and why. Include context on how it fits into the broader system.>
+
+   **Read before starting (whole-milestone context):**
+   - `<path>` — <why this file matters for the whole task>
+   - `<path>` — <pattern to mirror / type to extend / caller to update>
+   - `spec.md` — <specific section: formula, accessibility rule, domain idiom>
+   - `CLAUDE.md` — <only if build/lint/test workflow is non-obvious>
 
    ### Components
 
@@ -55,10 +81,17 @@ The argument is a short description of the feature, refactor, or fix. Example: `
      // Key types, interfaces, function signatures
      ```
      - <Behavioral notes>
+     - **Read:** `<path>` (lines X-Y) — <why this exact region>
+     - **Update callers:** `<path>` line N, `<path>` line N
+     - **Docs to fetch:** <library> — <URL>
+     - **Stdlib:** `<package.Symbol>` (if a stdlib answer exists, prefer it)
+     - **New dependency:** `<module path>` (only if a `go get` is required)
+     - **Tools the agent should use:** <e.g. `WebFetch` for the doc URL above; `Grep` for `<symbol>` to find call sites; `make test` after the change>
      - Test: <specific test case>
      - Test: <specific test case>
 
    - [ ] **<Wiring / integration step>** — <description> (<C4 depth>)
+     - **Read:** `<path>` (lines X-Y) — <why>
      - Test: <integration test>
 
    - [ ] **Version bump** — bump `VERSION` in `Makefile` (Code)
@@ -72,12 +105,12 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - [ ] Verify: <end-to-end manual verification steps>
    ```
 
-7. **C4 depth annotations**: Tag every component with its C4 model depth:
+9. **C4 depth annotations**: Tag every component with its C4 model depth:
    - **Code** — pure domain types, functions, value objects (innermost)
    - **Component** — a package-level unit: CLI commands, store implementations, UI screens
    - **Container** — top-level wiring, lifecycle management, cross-cutting concerns (outermost)
 
-8. **Conventions to follow** (derived from existing task specs):
+10. **Conventions to follow** (derived from existing task specs):
    - Domain types use Go idioms: `type XxxID string`, enums via `iota` with `String()` method
    - Include Go code blocks showing key type definitions and function signatures
    - Log lines use structured `slog` format: `logger.Info("event", "key", val)`
@@ -86,7 +119,7 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - The final `- [ ] Verify:` item is a manual end-to-end smoke test
    - Keep milestone scope self-contained — the task should be independently verifiable
 
-9. **Review**: Read back the created file. Confirm it follows the pattern of existing tasks, has C4 annotations on every component, includes specific test cases, and covers documentation updates.
+11. **Review**: Read back the created file. Confirm it follows the pattern of existing tasks, has C4 annotations on every component, includes specific test cases, and covers documentation updates. Verify the **Read before starting** list has 4–8 entries each with a *why*, and that every component bullet includes at least one **Read:** pointer plus, where relevant, **Docs to fetch:** / **Stdlib:** / **Tools the agent should use:** sub-bullets.
 
 ## Rules
 
