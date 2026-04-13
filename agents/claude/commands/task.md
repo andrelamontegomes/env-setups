@@ -10,7 +10,7 @@ Complete a task spec file from the `tasks/` directory.
    - Read any existing files that will be modified.
    - Implement the component, wiring, or verification described in the checkbox.
    - Write tests as specified inline with each task item.
-   - Run `make tidy` to confirm tests pass.
+   - If a `Makefile` exist, use those commands to run test, build, lint, etc. over the package scripts.
    - Run `make test` to confirm tests pass.
    - Run `make lint` to confirm code is clean.
    - Mark the checkbox `- [x]` in the task spec file immediately after that item passes.
