@@ -42,11 +42,11 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - **Read:** `<path>` (lines X-Y) — `<why this exact region matters>`. Always cite line ranges when pointing at a small region; this is more useful than "see the file".
    - **Update callers:** `<path>` line N, `<path>` line N — list every call site that breaks when a signature changes, so the agent does not have to grep for them.
    - **Update tests:** `<test file>` — name the test files whose fixtures or signatures must change.
-   - **Docs to fetch:** `<library/API name>` — `<URL>`. Use this for third-party libraries (Bubble Tea, Harmonica, Bubbles, Huh, Lipgloss, beep, modernc.org/sqlite, Cobra) when the component touches an unfamiliar API. Prefer canonical sources (`pkg.go.dev`, the project's GitHub README) and include the specific symbol/function the agent should look up.
-   - **Stdlib:** `<package.Symbol>` — note when a stdlib package is the right tool (e.g. `math.Pow`, `time.Tick`, `context.WithCancel`) so the agent does not reach for a dependency.
-   - **New dependency:** `<module path>` — flag any `go get` the agent will need to run, including whether it is already an indirect dep that just needs promoting in `go.mod`.
-   - **Migration:** if the component requires a DB migration, name the next number (e.g. `004`) and the file (`internal/db/migrations.go`).
-   - **Tools the agent should use:** call out non-default tools when relevant — e.g. `WebFetch` to pull a doc URL listed above, `Grep` for a specific symbol before editing, `LSP` for cross-package refactors, or running `make test` / `make lint` after changes.
+   - **Docs to fetch:** `<library/API name>` — `<URL>`. Use this for third-party libraries when the component touches an unfamiliar API. Prefer canonical sources (official docs, the project's GitHub README, `pkg.go.dev` / `docs.rs` / MDN / language-appropriate registries) and include the specific symbol/function the agent should look up.
+   - **Stdlib / built-ins:** `<package.Symbol>` — note when a standard library or built-in feature is the right tool so the agent does not reach for a dependency.
+   - **New dependency:** `<package / module path>` — flag any install step the agent will need to run (`npm install`, `pip install`, `go get`, `cargo add`, `bundle add`, etc.), including whether it is already an indirect/transitive dep that just needs promoting.
+   - **Migration:** if the component requires a DB or schema migration, name the next number/identifier and the file or directory where migrations live in this project.
+   - **Tools the agent should use:** call out non-default tools when relevant — e.g. `WebFetch` to pull a doc URL listed above, `Grep` for a specific symbol before editing, `LSP` for cross-package refactors, or running the project's test/lint commands after changes.
    Do not invent references. If you do not know the correct URL or line number, leave the bullet off rather than guess — the implementing agent can search.
 
 8. **Write the task spec**: Create `tasks/<slug>.md` following this structure. Begin the file with a YAML frontmatter block containing `title`, `description`, `created_at`, and `updated_at` (both dates set to today in `YYYY-MM-DD` format on creation). Use `date +%Y-%m-%d` if you need to confirm today's date. Do not repeat the `# <Title> — <Short Description>` heading inside the body — the frontmatter is the source of truth for both.
@@ -75,16 +75,16 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    ### Components
 
    - [ ] **`<file path>`** — <description> (<C4 depth: Code | Component | Container>)
-     ```go
+     ```<language>
      // Key types, interfaces, function signatures
      ```
      - <Behavioral notes>
      - **Read:** `<path>` (lines X-Y) — <why this exact region>
      - **Update callers:** `<path>` line N, `<path>` line N
      - **Docs to fetch:** <library> — <URL>
-     - **Stdlib:** `<package.Symbol>` (if a stdlib answer exists, prefer it)
-     - **New dependency:** `<module path>` (only if a `go get` is required)
-     - **Tools the agent should use:** <e.g. `WebFetch` for the doc URL above; `Grep` for `<symbol>` to find call sites; `make test` after the change>
+     - **Stdlib / built-ins:** `<package.Symbol>` (if a stdlib/built-in answer exists, prefer it)
+     - **New dependency:** `<package / module path>` (only if an install step is required)
+     - **Tools the agent should use:** <e.g. `WebFetch` for the doc URL above; `Grep` for `<symbol>` to find call sites; project test/lint command after the change>
      - Test: <specific test case>
      - Test: <specific test case>
 
@@ -92,9 +92,9 @@ The argument is a short description of the feature, refactor, or fix. Example: `
      - **Read:** `<path>` (lines X-Y) — <why>
      - Test: <integration test>
 
-   - [ ] **Version bump** — bump `VERSION` in `Makefile` (Code)
+   - [ ] **Version bump** — bump the project's version (Code)
      - Bump type: <patch | minor | major>
-     - At completion time, read the current `VERSION ?=` line and apply the bump above. Do not pre-compute the new version here — it may be stale by the time this task runs.
+     - At completion time, read the current version from wherever the project stores it (e.g. `package.json`, `Cargo.toml`, `pyproject.toml`, `Makefile`, `VERSION` file) and apply the bump above. Do not pre-compute the new version here — it may be stale by the time this task runs.
 
    - [ ] **Documentation** (if needed)
      - Update `spec.md`: <what to add/change>
@@ -109,10 +109,10 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - **Container** — top-level wiring, lifecycle management, cross-cutting concerns (outermost)
 
 10. **Conventions to follow** (derived from existing task specs):
-   - Domain types use Go idioms: `type XxxID string`, enums via `iota` with `String()` method
-   - Include Go code blocks showing key type definitions and function signatures
-   - Log lines use structured `slog` format: `logger.Info("event", "key", val)`
-   - DB changes use numbered migrations in `internal/db/migrations.go`
+   - Match the project's existing idioms for domain types, IDs, and enums — mirror what already exists in the codebase rather than importing conventions from another language
+   - Include code blocks in the project's primary language showing key type definitions and function signatures; tag the fence with the correct language identifier
+   - Use the project's established logging/observability conventions (structured logger, format, field names) — check existing code before inventing a style
+   - DB/schema changes follow the project's existing migration convention (numbered files, timestamped files, ORM-generated, etc.) — check where migrations live before adding one
    - Every `Test:` line describes a single, specific assertion — not vague "test it works"
    - The final `- [ ] Verify:` item is a manual end-to-end smoke test
    - Keep milestone scope self-contained — the task should be independently verifiable
