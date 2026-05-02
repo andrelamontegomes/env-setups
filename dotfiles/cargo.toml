@@ -1,7 +1,7 @@
 # Place in ~/.cargo/config.toml
 [build]
 target-dir= "/path/home/.cache/cargo-target"
-rustc-wrapper = "sccache"
+# rustc-wrapper = "sccache"
 
 
 [profile.dev]
