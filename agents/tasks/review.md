@@ -80,7 +80,7 @@ Keep it tight. The user should be able to skim it and answer with a yes/no plus 
 ### 6. Apply changes only after the user confirms
 
 After the report:
-- If the user confirms **Tighten in place**, edit the spec directly. Bump `updated_at` to today.
+- If the user confirms **Tighten in place**, edit the spec directly. Bump `updated_at` to now (`YYYY-MM-DD HH:MM:SS`, via `date '+%Y-%m-%d %H:%M:%S'`).
 - If the user confirms **Break down**, this skill does not write the new specs itself — hand off to `/tasks:brief` (or `/tasks:new` per child) so the same gap-clarification flow runs. Suggest the exact follow-up commands. Optionally archive the original spec by moving it to `tasks/superseded/` (create the directory if needed) so the history is preserved without polluting the active list — but only if the user agrees.
 - If the user picks **Ready**, do nothing further.
 

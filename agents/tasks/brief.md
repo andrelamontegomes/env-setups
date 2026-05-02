@@ -100,7 +100,7 @@ Once confirmed, write the spec files.
 ### 8. Review
 
 After writing, list the files you created and read each one back. Confirm for each:
-- Frontmatter is present and dates are today.
+- Frontmatter is present and timestamps are now (`YYYY-MM-DD HH:MM:SS`).
 - Every component has a C4 depth and at least one `Read:` pointer.
 - Every component has at least one specific `Test:` line.
 - Cross-task `Depends on:` / `Coordinate with:` links use the actual filenames you wrote.

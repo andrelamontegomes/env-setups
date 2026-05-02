@@ -49,14 +49,14 @@ The argument is a short description of the feature, refactor, or fix. Example: `
    - **Tools the agent should use:** call out non-default tools when relevant — e.g. `WebFetch` to pull a doc URL listed above, `Grep` for a specific symbol before editing, `LSP` for cross-package refactors, or running `make test` / `make lint` after changes.
    Do not invent references. If you do not know the correct URL or line number, leave the bullet off rather than guess — the implementing agent can search.
 
-8. **Write the task spec**: Create `tasks/<slug>.md` following this structure. Begin the file with a YAML frontmatter block containing `title`, `description`, `created_at`, and `updated_at` (both dates set to today in `YYYY-MM-DD` format on creation). Use `date +%Y-%m-%d` if you need to confirm today's date. Do not repeat the `# <Title> — <Short Description>` heading inside the body — the frontmatter is the source of truth for both.
+8. **Write the task spec**: Create `tasks/<slug>.md` following this structure. Begin the file with a YAML frontmatter block containing `title`, `description`, `created_at`, and `updated_at` (both timestamps set to now in `YYYY-MM-DD HH:MM:SS` format on creation). Use `date '+%Y-%m-%d %H:%M:%S'` if you need to confirm the current timestamp. Do not repeat the `# <Title> — <Short Description>` heading inside the body — the frontmatter is the source of truth for both.
 
    ```markdown
    ---
    title: <Title>
    description: <Short Description>
-   created_at: <YYYY-MM-DD>
-   updated_at: <YYYY-MM-DD>
+   created_at: <YYYY-MM-DD HH:MM:SS>
+   updated_at: <YYYY-MM-DD HH:MM:SS>
    ---
 
    **Depends on:** [other-task.md](other-task.md) (if applicable, omit section if none)

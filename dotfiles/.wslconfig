@@ -1,4 +1,11 @@
-[boot]
-systemd=true
-memory=8GB
-processors=3
+# Create in /WINDOWS/PATH/USER/.wslconfig
+[wsl2]
+memory=32GB
+processors=32
+swap=8GB
+diskSize=120GB
+vmIdleTimeout=-1
+
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true
