@@ -1,0 +1,14 @@
+# Place in ~/.cargo/config.toml
+[build]
+target-dir= "/path/home/.cache/cargo-target"
+rustc-wrapper = "sccache"
+
+
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.release]
+strip = true # strip symbols from final binary
+lto = "thin" # smaller, faster binary
+codegen-units = 1 # smaller (slower compile)
+
