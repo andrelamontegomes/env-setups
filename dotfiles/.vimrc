@@ -120,6 +120,13 @@ set laststatus=2
 set autoread
 autocmd FocusGained * checktime
 
+" Dim on Tmux active pane
+augroup tmux_dim
+  autocmd!
+  autocmd FocusLost  * hi Normal ctermbg=235 guibg=#1c1c1c
+  autocmd FocusGained * hi Normal ctermbg=NONE guibg=NONE
+augroup END
+
 "==================  Mapping Commands ======" 
 " Press the space bar to type the : character in command mode.
 nnoremap , :
@@ -209,16 +216,20 @@ nnoremap <leader>] :colorscheme seoul256<CR>
 "-------------------------------------------- 
 "------------- COC --------------------- 
 "-------------------------------------------- 
-let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-tailwindcss', 'coc-html', 'coc-sql','coc-sh','coc-rust-analyzer','coc-phpls','coc-docker','coc-jedi','coc-css']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-tailwindcss', 'coc-html', 'coc-sql','coc-sh','coc-rust-analyzer','coc-phpls','coc-docker','coc-css']
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" inoremap <expr> <CR> coc#pum#visible() ? "\<C-y>" : "\<CR>"
+
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
 nnoremap <silent> K :call ShowDocumentation()<CR>
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
