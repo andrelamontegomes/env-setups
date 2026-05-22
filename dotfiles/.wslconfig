@@ -5,6 +5,7 @@ processors=32
 swap=8GB
 defaultVhdSize=100GB
 vmIdleTimeout=-1
+networkingMode=mirrored
 [experimental]
 autoMemoryReclaim=gradual
 sparseVhd=true
