@@ -111,6 +111,21 @@ and the paragraph is deleted. The only prose worth keeping from it is a
 constraint, if one existed ("the store owns the only SQLite connection"),
 stated in one line under the diagram.
 
+## Mermaid conventions
+
+A Mermaid block with a syntax error renders as a raw code block with no
+warning, so keep the syntax conservative:
+
+- Quote any node or edge label containing `(`, `)`, `/`, `:`, or `,`:
+  `A["store (SQLite)"]`.
+- In `sequenceDiagram`, alias participants whose names contain spaces:
+  `participant TS as task service`.
+- No `style`, `classDef`, or theme directives — specs must render the same in
+  every viewer, and color is not information.
+- Prefer `graph TD` over `graph LR` once there are more than ~4 nodes;
+  top-down survives narrow viewports.
+- Keep one diagram per fenced block, tagged `mermaid`.
+
 ## Tables
 
 - Every column must differentiate rows. A column with the same value in every
@@ -172,6 +187,18 @@ diagrams), multi-entry **Update callers** lists (table), and the Verify steps
 For free-form specs (`spec.md`, design docs, RFCs) there is no execution
 contract — apply the mapping table everywhere it fits.
 
+If you cannot tell whether a prose block is machine-read by some tool, use
+AskUserQuestion rather than guessing — a wrongly deleted contract line is the
+one mistake this skill must never make.
+
+## Specs that already have visuals
+
+Re-running this skill on a spec that was already visualized must not stack
+diagrams. For each existing visual: verify it still matches the surrounding
+text and the code it describes; update it in place if stale; never add a
+second diagram or table covering ground an existing one already covers —
+extend or replace the existing one instead.
+
 ## Process
 
 1. **Read the whole spec first.** Note which tooling consumes it (task spec
@@ -191,6 +218,9 @@ contract — apply the mapping table everywhere it fits.
 6. **Check rendering.** Confirm ASCII blocks are fenced, under 80 columns, and
    aligned; confirm Mermaid blocks are syntactically valid; confirm tables
    have consistent column counts.
+7. **Report the line count.** State the spec's original and final line counts.
+   If the spec grew, you decorated instead of replaced — remove the weakest
+   visual or delete the prose it should have displaced.
 
 ## Calibration
 
