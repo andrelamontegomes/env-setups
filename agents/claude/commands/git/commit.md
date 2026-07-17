@@ -22,7 +22,8 @@ Based on the above changes, create a single git commit.
 - Check if there are any artifacts in debugging like js `console.log()` or php's `dd()`
 - Keep subject line under 50 characters
 - Follow project style: feat, fix, refactor, chore, test, style, perf, docs, etc.
-- Run git add . before to make sure unstaged files are included in commit
+- Only commit files you have worked on in this session — other agents may be working in the same project
+- NEVER run `git add .` or `git add -A`; stage explicitly with `git add [files]`, listing only your files
 
 ## Pull Request Guidelines
 
